@@ -1,0 +1,202 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = "Twoje wymarzone nieruchomości — profesjonalne doradztwo na rynku nieruchomości w Polsce.",
+  canonical = Astro.url.href,
+  ogImage = "/og-default.png",
+} = Astro.props;
+
+const siteName = "RealEstate";
+const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
+---
+
+<!doctype html>
+<html lang="pl" data-theme="corporate">
+  <head>
+    <!-- ── Encoding & Viewport ────────────────────────────────── -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ── Fonts ────────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ── Primary SEO ───────────────────────────────────────── -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- ── Open Graph ────────────────────────────────────────── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="pl_PL" />
+
+    <!-- ── Twitter / X Card ──────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- ── Favicon ───────────────────────────────────────────── -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Joanna" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ── Robots ────────────────────────────────────────────── -->
+    <meta name="robots" content="index, follow" />
+  </head>
+
+  <body>
+    <!-- ── Blog Header — logo only, no nav ──────────────────── -->
+    <header id="blog-header" class="blog-header">
+      <div class="container-layout blog-header__inner">
+        <a href="/" class="blog-logo-link" aria-label="Wróć na stronę główną">
+          <img
+            src="/images/logo.png"
+            alt="Logo — strona główna"
+            class="blog-logo-img"
+          />
+        </a>
+      </div>
+    </header>
+
+    <!-- ── Main page content ─────────────────────────────────── -->
+    <main class="blog-main">
+      <slot />
+    </main>
+
+    <!-- ── Footer ────────────────────────────────────────────── -->
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  /*
+   * CSS Reset
+   */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #1f2025;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family:
+      "Inter",
+      "Segoe UI",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  /* ── Blog-specific header ──────────────────────────────────── */
+
+  .blog-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(232, 234, 237, 0.8);
+    height: 4rem; /* 64px — same as mobile header height */
+  }
+
+  @media (min-width: 768px) {
+    .blog-header {
+      height: 5rem; /* 80px — same as desktop header height */
+    }
+  }
+
+  .blog-header__inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .blog-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .blog-logo-link:hover {
+    opacity: 0.8;
+  }
+
+  .blog-logo-img {
+    /* Circular logo fitting within the header height with comfortable padding */
+    width: 2.5rem; /* 40px */
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (min-width: 768px) {
+    .blog-logo-img {
+      width: 3rem; /* 48px */
+      height: 3rem;
+    }
+  }
+
+  .blog-main {
+    padding-top: 4rem; /* offset for fixed blog header (mobile) */
+  }
+
+  @media (min-width: 768px) {
+    .blog-main {
+      padding-top: 5rem; /* offset for fixed blog header (desktop) */
+    }
+  }
+</style>
