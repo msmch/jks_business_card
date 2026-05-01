@@ -18,7 +18,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <img
           src="/images/agent_zdjecie.png"
           alt="Zdjęcie agenta"
-          class="w-full h-full object-cover object-center aspect-[3/4] md:aspect-auto"
+          class="w-full h-full object-cover object-center aspect-[3/4] md:aspect-auto overflow-hidden"
         />
       </div>
 
@@ -36,10 +36,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </h1>
 
         <!-- Krótki opis -->
-        <p class="lead">
+        <p class="lead lead-desktop">
           Pośrednictwo w obrocie nieruchomościami.
-          <br />
-          Bezpieczeństwo umów, due diligence, negocjacje — wszystko w jednym miejscu.
+        </p>
+        <p class="lead">
+          Bezpieczeństwo umów, due diligence, negocjacje — wszystko w jednym
+          miejscu.
         </p>
 
         <!-- CTA -->
@@ -750,46 +752,46 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   /* ── RESPONSIVE — mobile ──────────────────────────────────────── */
   @media (max-width: 768px) {
     .hero-section {
+      height: 100svh;
       min-height: 100svh;
-      align-items: stretch;
+      max-height: 100svh;
+      overflow: hidden;
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr; /* Jedna komórka, aby nałożyć na siebie elementy */
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
     }
 
     .photo-col {
-      grid-column: 1 / 2;
-      grid-row: 2 / 2;
+      order: 2;
+      flex: 1 1 0;
+      width: 100%;
       padding-top: 0;
-      height: 65svh;
-      transform: translateX(0.5rem);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
     }
 
     .content-col {
-      height: 30svh;
-      grid-column: 1 / 2;
-      grid-row: 1/ 2;
-      justify-content: flex-end;
-      align-self: end;
-
+      order: 1;
+      flex: 0 0 auto;
+      justify-content: start;
       padding-top: 2rem;
-      padding-bottom: 2rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      background: rgba(255, 255, 255, 0.6);
-      z-index: 10;
-      gap: 1.25rem;
+      padding-bottom: 0;
+      gap: 1rem;
     }
 
     .headline {
-      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-size: clamp(1.1rem, 6.6vw, 2rem);
       font-weight: 700;
       line-height: 1.1;
       color: #1f2025;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
       margin: 0;
       display: flex;
       flex-direction: column;
@@ -798,6 +800,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     .lead {
       max-width: none;
+      line-height: 1.4;
+    }
+
+    .lead-desktop {
+      display: none;
     }
 
     .cta-row {
@@ -807,7 +814,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   @media (max-width: 480px) {
     .content-col {
-      padding-bottom: 1.5rem;
       padding-left: 1.25rem;
       padding-right: 1.25rem;
     }
