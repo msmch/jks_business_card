@@ -71,13 +71,8 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
 
   <body>
     <!-- ── Header ────────────────────────────────────────────── -->
-    <header
-      id="main-header"
-      class="fixed left-0 w-full top-0 z-50 transition-transform duration-300 translate-y-0 md:-translate-y-full"
-    >
-      <div
-        class="container-layout flex justify-end items-center h-16 md:h-20"
-      >
+    <header id="main-header" class="absolute left-0 w-full top-0 z-50">
+      <div class="container-layout flex justify-end items-center h-16 md:h-20">
         <button
           id="mobile-menu-btn"
           type="button"
@@ -180,41 +175,7 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
           window.pageYOffset || document.documentElement.scrollTop;
         let isMenuOpen = false;
 
-        // 1. Logika Smart Scrolla
-        window.addEventListener(
-          "scroll",
-          () => {
-            const scrollTop =
-              window.pageYOffset || document.documentElement.scrollTop;
-
-            // Zapobiegaj błędom bounce na urządzeniach mobilnych
-            if (scrollTop < 0) return;
-
-            const isScrollingDown = scrollTop > lastScrollTop;
-            const heroHeight = window.innerHeight;
-
-            if (isScrollingDown && scrollTop > header.offsetHeight) {
-              header.classList.remove("translate-y-0", "md:-translate-y-full");
-              header.classList.add("-translate-y-full");
-            } else if (!isScrollingDown && scrollTop < heroHeight / 2) {
-              header.classList.remove(
-                "-translate-y-full",
-                "md:-translate-y-full",
-              );
-              header.classList.add("translate-y-0");
-            }
-
-            // Zamknij otwarte menu mobilne przy przewijaniu w dół
-            if (isMenuOpen && isScrollingDown && scrollTop > 10) {
-              closeMobileMenu();
-            }
-
-            lastScrollTop = scrollTop;
-          },
-          { passive: true },
-        );
-
-        // 2. Obsługa Menu Mobilnego
+        // Obsługa Menu Mobilnego
         const menuBtn = document.getElementById("mobile-menu-btn");
         const mobileMenu = document.getElementById("mobile-menu");
         const iconMenu = document.getElementById("icon-menu");
