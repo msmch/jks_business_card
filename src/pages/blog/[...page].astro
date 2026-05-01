@@ -25,11 +25,13 @@ const { page } = Astro.props;
         <div class="container-layout blog-intro__inner">
             <!-- Zdjęcie agentki -->
             <div class="blog-intro__image-wrap">
-                <img
-                    src="/images/agent_blog.png"
-                    alt="Joanna Kardas-Śmiechowicz — autorka bloga"
-                    class="blog-intro__image"
-                />
+                <div class="relative w-full max-w-lg mx-auto lg:max-w-none">
+                    <img
+                        src="/images/agent_blog.png"
+                        alt="Joanna Kardas-Śmiechowicz — autorka bloga"
+                        class="w-full h-auto rounded-[2rem] object-cover shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-gray-100"
+                    />
+                </div>
             </div>
 
             <!-- Tekst wprowadzenia -->
@@ -149,33 +151,12 @@ const { page } = Astro.props;
 
     .blog-intro__image-wrap {
         flex-shrink: 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .blog-intro__image {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
-        object-position: top center;
-        box-shadow:
-            0 8px 32px rgba(239, 0, 129, 0.12),
-            0 2px 8px rgba(0, 0, 0, 0.08);
-        border: 4px solid #ffffff;
+        width: 100%;
     }
 
     @media (min-width: 768px) {
-        .blog-intro__image {
-            width: 240px;
-            height: 240px;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .blog-intro__image {
-            width: 280px;
-            height: 280px;
+        .blog-intro__image-wrap {
+            width: 48%;
         }
     }
 
