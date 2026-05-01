@@ -21,11 +21,14 @@ export default {
 
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         /* Full magenta scale — keep DEFAULT in sync with --color-primary */
         magenta: {
           DEFAULT: '#EF0081',
-          50:  '#fff0f8',
+          50: '#fff0f8',
           100: '#ffe0f2',
           200: '#ffc2e6',
           300: '#ff91cf',
@@ -53,15 +56,15 @@ export default {
     themes: [
       {
         corporate: {
-          'primary':         '#EF0081',
+          'primary': '#EF0081',
           'primary-content': '#ffffff',
-          'secondary':       '#4b5a72',
-          'accent':          '#2e7aad',
-          'neutral':         '#374151',
-          'base-100':        '#ffffff',
-          'base-200':        '#f5f6f8',
-          'base-300':        '#e8eaed',
-          'base-content':    '#1a1b1e',
+          'secondary': '#4b5a72',
+          'accent': '#2e7aad',
+          'neutral': '#374151',
+          'base-100': '#ffffff',
+          'base-200': '#f5f6f8',
+          'base-300': '#e8eaed',
+          'base-content': '#1a1b1e',
         },
       },
     ],
