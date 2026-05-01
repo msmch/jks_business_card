@@ -5,13 +5,17 @@
  * Zmień MESSENGER_URL na właściwy link do profilu.
  */
 
-const MESSENGER_URL = 'https://m.me/twoj.profil'; // ← zmień na swój link
-const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój link
+const MESSENGER_URL = "https://www.messenger.com/e2ee/t/993004823061816";
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61569082704747";
 ---
 
-<footer class="footer-wrapper">
+<footer id="kontakt" class="footer-wrapper">
   <div class="footer-inner">
-    <p class="footer-label">Jesteśmy tu:</p>
+    <h2
+      class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-8"
+    >
+      Znajdziesz mnie tutaj
+    </h2>
 
     <div class="footer-ctas">
       <!-- Messenger CTA -->
@@ -20,7 +24,7 @@ const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój
         target="_blank"
         rel="noopener noreferrer"
         class="cta-link"
-        aria-label="Napisz do nas na Messengerze"
+        aria-label="Napisz do mnie na Messengerze"
       >
         <!-- Messenger SVG icon -->
         <svg
@@ -31,15 +35,15 @@ const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój
         >
           <defs>
             <linearGradient id="msg-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#0078FF"/>
-              <stop offset="100%" stop-color="#A334FA"/>
+              <stop offset="0%" stop-color="#0078FF"></stop>
+              <stop offset="100%" stop-color="#A334FA"></stop>
             </linearGradient>
           </defs>
-          <circle cx="24" cy="24" r="24" fill="url(#msg-grad)"/>
+          <circle cx="24" cy="24" r="24" fill="url(#msg-grad)"></circle>
           <path
             fill="#fff"
             d="M24 6C14.06 6 6 13.6 6 23c0 5.34 2.66 10.1 6.82 13.23V42l5.9-3.24C20.47 39.54 22.2 39.8 24 39.8c9.94 0 18-7.6 18-16.8S33.94 6 24 6zm1.9 22.6-4.57-4.87-8.93 4.87 9.82-10.43 4.68 4.87 8.82-4.87-9.82 10.43z"
-          />
+          ></path>
         </svg>
         <span class="cta-label">Messenger</span>
       </a>
@@ -50,7 +54,7 @@ const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój
         target="_blank"
         rel="noopener noreferrer"
         class="cta-link"
-        aria-label="Odwiedź nasz profil na Facebooku"
+        aria-label="Odwiedź mój profil na Facebooku"
       >
         <!-- Facebook SVG icon -->
         <svg
@@ -59,18 +63,18 @@ const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój
           class="cta-icon"
           aria-hidden="true"
         >
-          <circle cx="24" cy="24" r="24" fill="#1877F2"/>
+          <circle cx="24" cy="24" r="24" fill="#1877F2"></circle>
           <path
             fill="#fff"
             d="M31.5 16H28c-.83 0-1 .42-1 1v2.5h4.5l-.6 4.5H27V38h-5V24h-3v-4.5h3V17c0-3.87 2.37-6 5.79-6 1.65 0 3.71.3 3.71.3V16z"
-          />
+          ></path>
         </svg>
         <span class="cta-label">Facebook</span>
       </a>
     </div>
 
     <p class="footer-copy">
-      © {new Date().getFullYear()} RealEstate. Wszelkie prawa zastrzeżone.
+      © {new Date().getFullYear()} Joanna Kardas-Śmiechowicz. Wszelkie prawa zastrzeżone.
     </p>
   </div>
 </footer>
@@ -78,9 +82,8 @@ const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój
 <style>
   .footer-wrapper {
     background: #ffffff;
-    border-top: 1px solid #E8EAED;
+    border-top: 1px solid #e8eaed;
     padding: 2.5rem 1rem 2rem;
-    margin-top: 4rem;
   }
 
   .footer-inner {
@@ -96,7 +99,7 @@ const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój
   .footer-label {
     font-size: 0.9375rem;
     font-weight: 600;
-    color: #1F2025;
+    color: #1f2025;
     letter-spacing: 0.01em;
     margin: 0;
   }
@@ -107,6 +110,7 @@ const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój
     gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 2rem;
   }
 
   .cta-link {
@@ -115,7 +119,9 @@ const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-    transition: transform 0.18s ease, opacity 0.18s ease;
+    transition:
+      transform 0.18s ease,
+      opacity 0.18s ease;
   }
 
   .cta-link:hover {
@@ -124,7 +130,7 @@ const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój
   }
 
   .cta-icon {
-    width: 3.5rem;   /* 56px — duża, wyraźna ikona */
+    width: 3.5rem; /* 56px — duża, wyraźna ikona */
     height: 3.5rem;
     display: block;
     border-radius: 50%;
@@ -134,15 +140,15 @@ const FACEBOOK_URL  = 'https://facebook.com/twoj.profil'; // ← zmień na swój
   .cta-label {
     font-size: 0.75rem;
     font-weight: 600;
-    color: #4B5563;
+    color: #4b5563;
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
 
   .footer-copy {
     font-size: 0.8125rem;
-    color: #9CA3AF;
-    margin: 0;
+    color: #9ca3af;
+    padding-top: 4rem;
   }
 
   /* Responsywność — na bardzo małych ekranach ikony w pionie */
