@@ -60,7 +60,7 @@ const { Content } = await render(entry);
     }
 
     .blog-post__inner {
-        max-width: 48rem; /* ~768px — comfortable reading width */
+        max-width: 56rem; /* widened for better reading experience */
     }
 
     .blog-post__header {
@@ -122,5 +122,24 @@ const { Content } = await render(entry);
     :global(.btn-ghost-custom:hover) {
         color: #ef0081;
         background-color: #fdf2f8;
+    }
+
+    /* ── Typography fixes ────────────────────────────────────── */
+    :global(.prose) {
+        line-height: 1.85 !important;
+    }
+
+    :global(.prose p) {
+        margin-bottom: 1.75em !important;
+    }
+
+    :global(.prose ul),
+    :global(.prose ol) {
+        padding-left: 2.5rem !important;
+        margin-block: 1.5em !important;
+    }
+
+    :global(.prose li) {
+        margin-bottom: 0.75em !important;
     }
 </style>

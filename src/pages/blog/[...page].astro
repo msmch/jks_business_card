@@ -38,12 +38,11 @@ const { page } = Astro.props;
             <div class="blog-intro__content">
                 <h1 class="blog-intro__heading">Blog</h1>
                 <p class="blog-intro__lead">
-                    Witaj na moim blogu! Znajdziesz tu eksperckie porady
-                    prawne, rzetelne analizy rynku nieruchomości oraz
-                    praktyczne wskazówki dla kupujących i sprzedających.
-                    Piszę przystępnie, bo wiem, że rynek nieruchomości
-                    bywa skomplikowany — a dobra wiedza to najlepsza
-                    inwestycja.
+                    Witaj na moim blogu! Znajdziesz tu eksperckie porady prawne,
+                    rzetelne analizy rynku nieruchomości oraz praktyczne
+                    wskazówki dla kupujących i sprzedających. Piszę przystępnie,
+                    bo wiem, że rynek nieruchomości bywa skomplikowany — a dobra
+                    wiedza to najlepsza inwestycja.
                 </p>
                 <p class="blog-intro__sub">
                     Joanna Kardas-Śmiechowicz &mdash; prawnik, doradca
@@ -59,10 +58,7 @@ const { page } = Astro.props;
             <div class="blog-grid">
                 {
                     page.data.map((post) => (
-                        <a
-                            href={`/blog/${post.id}`}
-                            class="blog-card"
-                        >
+                        <a href={`/blog/${post.id}`} class="blog-card">
                             <div class="blog-card__image-wrap">
                                 <img
                                     src={post.data.coverImage}
@@ -95,7 +91,10 @@ const { page } = Astro.props;
                     <div class="blog-pagination">
                         <div class="blog-pagination__prev">
                             {page.url.prev ? (
-                                <a href={page.url.prev} class="btn-ghost-custom">
+                                <a
+                                    href={page.url.prev}
+                                    class="btn-ghost-custom"
+                                >
                                     &larr; Nowsze
                                 </a>
                             ) : null}
@@ -107,7 +106,10 @@ const { page } = Astro.props;
 
                         <div class="blog-pagination__next">
                             {page.url.next ? (
-                                <a href={page.url.next} class="btn-ghost-custom">
+                                <a
+                                    href={page.url.next}
+                                    class="btn-ghost-custom"
+                                >
                                     Starsze &rarr;
                                 </a>
                             ) : null}
@@ -124,14 +126,8 @@ const { page } = Astro.props;
 
     .blog-intro {
         background: linear-gradient(135deg, #f5f6f8 0%, #ffffff 100%);
-        padding-block: 4rem 3.5rem;
+        padding-block: 2.5rem 3rem;
         border-bottom: 1px solid #e8eaed;
-    }
-
-    @media (min-width: 768px) {
-        .blog-intro {
-            padding-block: 5rem 4rem;
-        }
     }
 
     .blog-intro__inner {
