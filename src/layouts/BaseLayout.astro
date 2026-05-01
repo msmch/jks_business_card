@@ -76,7 +76,7 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
         <button
           id="mobile-menu-btn"
           type="button"
-          class="relative w-14 h-12 flex items-center justify-center md:hidden text-gray-500 hover:text-gray-900 focus:outline-none mr-8"
+          class="relative w-10 h-10 flex items-center justify-center md:hidden text-gray-500 hover:text-gray-900 focus:outline-none"
           aria-controls="mobile-menu"
           aria-expanded="false"
         >
@@ -157,6 +157,11 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
           class="block px-3 py-2 rounded-md text-2xl font-medium text-gray-900 hover:text-gray-700"
           >Blog</a
         >
+        <a
+          href="#kontakt"
+          class="block px-3 py-2 rounded-md text-2xl font-medium text-gray-900 hover:text-gray-700"
+          >Kontakt</a
+        >
       </div>
     </div>
 
@@ -171,15 +176,14 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
     <script is:inline>
       document.addEventListener("DOMContentLoaded", () => {
         const header = document.getElementById("main-header");
-        let lastScrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
         let isMenuOpen = false;
 
-        // Obsługa Menu Mobilnego
         const menuBtn = document.getElementById("mobile-menu-btn");
         const mobileMenu = document.getElementById("mobile-menu");
         const iconMenu = document.getElementById("icon-menu");
         const iconClose = document.getElementById("icon-close");
+
+        const mobileLinks = mobileMenu.querySelectorAll("a");
 
         function openMobileMenu() {
           isMenuOpen = true;
@@ -205,12 +209,21 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
           iconClose.classList.add("opacity-0", "-rotate-90");
         }
 
-        menuBtn.addEventListener("click", () => {
+        menuBtn.addEventListener("click", (e) => {
+          e.preventDefault();
           if (isMenuOpen) {
             closeMobileMenu();
           } else {
             openMobileMenu();
           }
+        });
+
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (isMenuOpen) {
+              closeMobileMenu();
+            }
+          });
         });
       });
     </script>

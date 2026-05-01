@@ -34,7 +34,9 @@ const { Content } = await render(entry);
                 />
             </header>
 
-            <div class="prose prose-lg prose-gray max-w-none prose-headings:text-gray-900 prose-a:text-[#EF0081] hover:prose-a:text-[#d40072]">
+            <div
+                class="prose prose-lg prose-gray max-w-none prose-headings:text-gray-900 prose-a:text-[#EF0081] hover:prose-a:text-[#d40072]"
+            >
                 <Content />
             </div>
 
@@ -98,9 +100,8 @@ const { Content } = await render(entry);
     }
 
     .blog-post__back {
-        margin-top: 4rem;
+        margin-top: 2rem;
         padding-top: 2rem;
-        border-top: 1px solid #e8eaed;
     }
 
     /* btn-ghost-custom — scoped forward reference */
