@@ -106,6 +106,20 @@
   .border-brand {
     border-left: 3px solid #EF0081;
   }
+
+  /* ── Swiper Pagination Overrides ────────────────────────────── */
+
+  .swiper-pagination-bullet {
+    background-color: #d1d5db !important;
+    /* Szary dla nieaktywnych */
+    opacity: 1 !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #EF0081 !important;
+    /* Twój różowy brandowy */
+  }
+
 }
 
 
