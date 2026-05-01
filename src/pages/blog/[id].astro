@@ -31,6 +31,7 @@ const { Content } = await render(entry);
                     src={entry.data.coverImage}
                     alt={entry.data.alt}
                     class="blog-post__cover"
+                    transition:name={`img-${entry.id}`}
                 />
             </header>
 
@@ -46,6 +47,16 @@ const { Content } = await render(entry);
                 </a>
             </div>
         </div>
+        <script is:inline>
+            document.addEventListener("astro:before-preparation", (e) => {
+                if (e.to.pathname === "/blog" || e.to.pathname === "/") {
+                    const cover = document.querySelector(".blog-post__cover");
+                    if (cover) {
+                        cover.style.viewTransitionName = "none";
+                    }
+                }
+            });
+        </script>
     </article>
 </BlogLayout>
 
