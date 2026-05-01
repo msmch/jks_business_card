@@ -1,121 +1,249 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const stats = [
-  { value: '1 200+', label: 'Ofert nieruchomości' },
-  { value: '15 lat', label: 'Doświadczenia' },
-  { value: '98%', label: 'Zadowolonych klientów' },
-];
-
-const features = [
-  {
-    icon: '🏠',
-    title: 'Domy i mieszkania',
-    description: 'Szeroki wybór nieruchomości mieszkalnych dopasowanych do Twojego budżetu i preferencji.',
-  },
-  {
-    icon: '🏢',
-    title: 'Nieruchomości komercyjne',
-    description: 'Lokale biurowe, handlowe i magazynowe w najlepszych lokalizacjach.',
-  },
-  {
-    icon: '📊',
-    title: 'Wycena i doradztwo',
-    description: 'Profesjonalna wycena nieruchomości i doradztwo inwestycyjne dla każdego klienta.',
-  },
-];
 ---
 
 <BaseLayout
-  title="RealEstate — Twoje wymarzone nieruchomości"
-  description="Znajdź wymarzoną nieruchomość z pomocą naszych ekspertów. Domy, mieszkania, lokale komercyjne."
+  title="Jan Kowalski — Prawnik i Agent Nieruchomości"
+  description="Kompleksowa obsługa prawna i pośrednictwo w obrocie nieruchomościami. Zaufaj doświadczeniu."
 >
-  <!-- ── HERO ─────────────────────────────────────────────────── -->
-  <section class="hero min-h-[90vh] bg-base-200">
-    <div class="hero-content flex-col lg:flex-row-reverse gap-12 max-w-6xl mx-auto px-4 py-16">
-      <!-- Illustration / image placeholder -->
-      <div class="w-full lg:w-1/2">
-        <div class="mockup-window bg-base-300 shadow-2xl">
-          <div class="bg-base-200 flex flex-col items-center justify-center gap-4 px-8 py-16">
-            <span class="text-8xl">🏙️</span>
-            <p class="text-base-content/60 text-center text-sm">
-              Przeglądaj tysiące ofert nieruchomości
-            </p>
-          </div>
+  <!-- ══════════════════════════════════════════════════════════
+       HERO SECTION
+       Desktop: 2 kolumny (zdjęcie | tekst), min-h-screen
+       Mobile:  jedna kolumna — tekst najpierw, zdjęcie pod spodem
+  ══════════════════════════════════════════════════════════ -->
+  <section class="hero-section">
+    <div class="hero-grid">
+
+      <!-- ── LEWA KOLUMNA — placeholder na zdjęcie agenta ─────── -->
+      <!-- Tu wstawimy zdjęcie -->
+      <div class="photo-col">
+        <div class="photo-placeholder">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="photo-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+            />
+          </svg>
+          <span class="photo-hint">Zdjęcie agenta</span>
         </div>
       </div>
 
-      <!-- Copy -->
-      <div class="w-full lg:w-1/2">
-        <div class="badge badge-primary badge-outline mb-4">Nowe oferty co tydzień</div>
-        <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-base-content">
-          Znajdź nieruchomość<br />
-          <span class="text-primary">swoich marzeń</span>
+      <!-- ── PRAWA KOLUMNA — treść ──────────────────────────────── -->
+      <div class="content-col">
+        <!-- Kicker / tag marki -->
+        <p class="kicker">PRAWO &amp; NIERUCHOMOŚCI</p>
+
+        <!-- Główny nagłówek -->
+        <h1 class="headline">
+          Jan Kowalski
+          <span class="headline-sub">Prawnik i Agent</span>
         </h1>
-        <p class="py-6 text-base-content/70 text-lg leading-relaxed max-w-lg">
-          Pomagamy kupić, sprzedać i wynająć nieruchomości w całej Polsce.
-          Skorzystaj z wiedzy naszych ekspertów i ciesz się nowym domem.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a href="/oferty" class="btn btn-primary btn-lg">
-            Przeglądaj oferty
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
-          </a>
-          <a href="/kontakt" class="btn btn-outline btn-lg">Bezpłatna konsultacja</a>
-        </div>
 
-        <!-- Stats -->
-        <div class="stats stats-horizontal shadow mt-10 bg-base-100">
-          {stats.map((s) => (
-            <div class="stat px-6">
-              <div class="stat-value text-primary text-2xl">{s.value}</div>
-              <div class="stat-desc text-sm">{s.label}</div>
-            </div>
-          ))}
+        <!-- Krótki opis -->
+        <p class="lead">
+          Kompleksowa obsługa prawna transakcji nieruchomości.<br />
+          Bezpieczeństwo umów, due diligence, negocjacje — wszystko w jednym miejscu.
+        </p>
+
+        <!-- CTA -->
+        <div class="cta-row">
+          <a href="#kontakt" class="btn-primary-custom">Umów konsultację</a>
+          <a href="#oferta"  class="btn-ghost-custom">Zobacz ofertę →</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ── FEATURES ───────────────────────────────────────────────── -->
-  <section class="py-20 bg-base-100">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-14">
-        <h2 class="text-3xl font-bold text-base-content">Jak możemy Ci pomóc?</h2>
-        <p class="text-base-content/60 mt-3 max-w-xl mx-auto">
-          Oferujemy kompleksową obsługę rynku nieruchomości — od poszukiwania aż po finalizację transakcji.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {features.map((f) => (
-          <div class="card bg-base-200 shadow-md hover:shadow-xl transition-shadow duration-300">
-            <div class="card-body items-center text-center gap-4">
-              <div class="text-5xl">{f.icon}</div>
-              <h3 class="card-title text-xl">{f.title}</h3>
-              <p class="text-base-content/70 text-sm leading-relaxed">{f.description}</p>
-              <div class="card-actions mt-2">
-                <a href="/oferty" class="btn btn-primary btn-sm btn-outline">Dowiedz się więcej</a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CTA BANNER ─────────────────────────────────────────────── -->
-  <section class="py-16 bg-primary text-primary-content">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Gotowy na kolejny krok?</h2>
-      <p class="opacity-80 mb-8 text-lg">
-        Skontaktuj się z naszym doradcą już dziś i zacznij poszukiwania swojej wymarzonej nieruchomości.
-      </p>
-      <a href="/kontakt" class="btn btn-lg bg-white text-primary hover:bg-base-200 border-none shadow-lg">
-        Umów bezpłatną konsultację
-      </a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  /* ── HERO WRAPPER ─────────────────────────────────────────────── */
+  .hero-section {
+    min-height: 100svh;       /* pełna wysokość viewportu               */
+    display: flex;
+    align-items: stretch;
+    background-color: #FFFFFF;
+  }
+
+  /* ── GRID ─────────────────────────────────────────────────────── */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* desktop: 50/50                */
+    width: 100%;
+  }
+
+  /* ── LEWA KOLUMNA — placeholder zdjęcia ──────────────────────── */
+  .photo-col {
+    background-color: #F3F4F7;        /* bg-tile — bardzo jasna szarość */
+    display: flex;
+    align-items: stretch;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #9CA3AF;
+    min-height: 100%;
+    /* Proporcje portretowe — kolumna rozciąga się do pełnej wys. sekcji */
+  }
+
+  .photo-icon {
+    width: 5rem;
+    height: 5rem;
+    opacity: 0.45;
+  }
+
+  .photo-hint {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  /* ── PRAWA KOLUMNA — treść ────────────────────────────────────── */
+  .content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 6rem 5rem 5rem;   /* duże, przestronne marginesy       */
+    gap: 1.75rem;
+  }
+
+  /* Kicker — etykieta marki w magenta */
+  .kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #EF0081;             /* brand magenta                         */
+    margin: 0;
+  }
+
+  /* Główny nagłówek */
+  .headline {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #1F2025;
+    letter-spacing: -0.02em;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .headline-sub {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 400;
+    color: #4B5563;
+    letter-spacing: 0em;
+  }
+
+  /* Lead — krótki opis */
+  .lead {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #6B7280;
+    max-width: 38ch;
+    margin: 0;
+  }
+
+  /* CTA row */
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .btn-primary-custom {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background-color: #EF0081;
+    color: #FFFFFF;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background-color 0.18s ease, transform 0.18s ease;
+  }
+
+  .btn-primary-custom:hover {
+    background-color: #d40072;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost-custom {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #4B5563;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.18s ease;
+  }
+
+  .btn-ghost-custom:hover {
+    color: #EF0081;
+  }
+
+  /* ── RESPONSIVE — mobile ──────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .hero-section {
+      min-height: 100svh;
+      align-items: flex-start;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+    }
+
+    /* Na mobile: tekst na górze, placeholder zdjęcia pod spodem */
+    .content-col {
+      order: 1;
+      padding: 3rem 1.5rem 2rem;
+      gap: 1.25rem;
+    }
+
+    .photo-col {
+      order: 2;
+      min-height: 55vw;       /* zachowanie proporcji portretowych     */
+    }
+
+    .lead {
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .content-col {
+      padding: 2.5rem 1.25rem 1.5rem;
+    }
+
+    .cta-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .btn-primary-custom {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

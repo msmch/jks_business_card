@@ -1,60 +1,110 @@
 ---
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
   description?: string;
+  /** Canonical URL dla tej strony (opcjonalny) */
+  canonical?: string;
+  /** URL obrazu OG (opcjonalny) */
+  ogImage?: string;
 }
 
 const {
   title,
-  description = 'Real Estate — Twoje wymarzone nieruchomości',
+  description = 'Twoje wymarzone nieruchomości — profesjonalne doradztwo na rynku nieruchomości w Polsce.',
+  canonical = Astro.url.href,
+  ogImage = '/og-default.png',
 } = Astro.props;
+
+const siteName = 'RealEstate';
+const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
 ---
 
 <!doctype html>
 <html lang="pl" data-theme="corporate">
   <head>
+    <!-- ── Encoding & Viewport ────────────────────────────────── -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
-  </head>
-  <body class="min-h-screen bg-base-100 text-base-content">
-    <!-- Navbar -->
-    <header class="navbar bg-base-200 shadow-sm px-4 lg:px-8">
-      <div class="navbar-start">
-        <a href="/" class="btn btn-ghost text-xl font-bold tracking-tight">
-          🏢 RealEstate
-        </a>
-      </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1 gap-1">
-          <li><a href="/" class="rounded-lg">Start</a></li>
-          <li><a href="/blog" class="rounded-lg">Blog</a></li>
-          <li><a href="/oferty" class="rounded-lg">Oferty</a></li>
-          <li><a href="/kontakt" class="rounded-lg">Kontakt</a></li>
-        </ul>
-      </div>
-      <div class="navbar-end gap-2">
-        <a href="/kontakt" class="btn btn-primary btn-sm">Skontaktuj się</a>
-      </div>
-    </header>
 
-    <!-- Main content -->
+    <!-- ── Primary SEO ───────────────────────────────────────── -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- ── Open Graph (Facebook / Messenger preview) ─────────── -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={canonical} />
+    <meta property="og:site_name"   content={siteName} />
+    <meta property="og:title"       content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image"       content={ogImage} />
+    <meta property="og:locale"      content="pl_PL" />
+
+    <!-- ── Twitter / X Card ──────────────────────────────────── -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={ogImage} />
+
+    <!-- ── Favicon ───────────────────────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- ── Robots ────────────────────────────────────────────── -->
+    <meta name="robots" content="index, follow" />
+  </head>
+
+  <body>
+    <!-- ── Main page content ─────────────────────────────────── -->
     <main>
       <slot />
     </main>
 
-    <!-- Footer -->
-    <footer class="footer footer-center bg-base-200 text-base-content p-8 mt-16">
-      <aside>
-        <p class="font-semibold text-lg">🏢 RealEstate</p>
-        <p class="text-sm opacity-70">
-          © {new Date().getFullYear()} RealEstate. Wszelkie prawa zastrzeżone.
-        </p>
-      </aside>
-    </footer>
+    <!-- ── Footer ────────────────────────────────────────────── -->
+    <Footer />
   </body>
 </html>
+
+<style is:global>
+  /*
+   * CSS Reset — czyste, białe tło, zero domyślnych marginesów.
+   * Zakres globalny (is:global) — działa na każdy element w drzewie DOM.
+   */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #1F2025;
+    min-height: 100vh;
+    font-family:
+      'Inter', 'Segoe UI', system-ui, -apple-system,
+      BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+  }
+</style>
