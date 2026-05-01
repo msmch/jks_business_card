@@ -263,31 +263,22 @@ const latestPosts = allPosts
       >
         {
           latestPosts.map((post) => (
-            <a
-              href={`/blog/${post.id}`}
-              class="card bg-white shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 rounded-2xl overflow-hidden group flex flex-col"
-            >
-              <div class="relative h-48 md:h-56 bg-[#F3F4F7] overflow-hidden flex items-center justify-center">
-                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-gray-500 via-transparent to-transparent group-hover:opacity-20 transition-opacity z-10" />
+            <a href={`/blog/${post.id}`} class="blog-card">
+              <div class="blog-card__image-wrap">
                 <img
                   src={post.data.coverImage}
                   alt={post.data.alt}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 relative"
+                  class="blog-card__image"
                 />
               </div>
 
-              <div class="card-body p-6 md:p-8 flex flex-col h-full">
-                <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#EF0081] transition-colors line-clamp-2">
-                  {post.data.title}
-                </h3>
-                <p class="text-gray-600 mb-6 line-clamp-3">
-                  {post.data.description}
-                </p>
-                <div class="mt-auto text-[#EF0081] text-sm font-bold uppercase tracking-wider flex items-center">
-                  Czytaj dalej{" "}
-                  <span class="ml-2 group-hover:translate-x-1 transition-transform">
-                    &rarr;
-                  </span>
+              <div class="blog-card__body">
+                <h3 class="blog-card__title">{post.data.title}</h3>
+                <p class="blog-card__desc">{post.data.description}</p>
+
+                <div class="blog-card__cta">
+                  Czytaj dalej
+                  <span class="blog-card__arrow">&rarr;</span>
                 </div>
               </div>
             </a>
