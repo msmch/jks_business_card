@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const stats = [
+  { value: '1 200+', label: 'Ofert nieruchomości' },
+  { value: '15 lat', label: 'Doświadczenia' },
+  { value: '98%', label: 'Zadowolonych klientów' },
+];
+
+const features = [
+  {
+    icon: '🏠',
+    title: 'Domy i mieszkania',
+    description: 'Szeroki wybór nieruchomości mieszkalnych dopasowanych do Twojego budżetu i preferencji.',
+  },
+  {
+    icon: '🏢',
+    title: 'Nieruchomości komercyjne',
+    description: 'Lokale biurowe, handlowe i magazynowe w najlepszych lokalizacjach.',
+  },
+  {
+    icon: '📊',
+    title: 'Wycena i doradztwo',
+    description: 'Profesjonalna wycena nieruchomości i doradztwo inwestycyjne dla każdego klienta.',
+  },
+];
+---
+
+<BaseLayout
+  title="RealEstate — Twoje wymarzone nieruchomości"
+  description="Znajdź wymarzoną nieruchomość z pomocą naszych ekspertów. Domy, mieszkania, lokale komercyjne."
+>
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero min-h-[90vh] bg-base-200">
+    <div class="hero-content flex-col lg:flex-row-reverse gap-12 max-w-6xl mx-auto px-4 py-16">
+      <!-- Illustration / image placeholder -->
+      <div class="w-full lg:w-1/2">
+        <div class="mockup-window bg-base-300 shadow-2xl">
+          <div class="bg-base-200 flex flex-col items-center justify-center gap-4 px-8 py-16">
+            <span class="text-8xl">🏙️</span>
+            <p class="text-base-content/60 text-center text-sm">
+              Przeglądaj tysiące ofert nieruchomości
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="w-full lg:w-1/2">
+        <div class="badge badge-primary badge-outline mb-4">Nowe oferty co tydzień</div>
+        <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-base-content">
+          Znajdź nieruchomość<br />
+          <span class="text-primary">swoich marzeń</span>
+        </h1>
+        <p class="py-6 text-base-content/70 text-lg leading-relaxed max-w-lg">
+          Pomagamy kupić, sprzedać i wynająć nieruchomości w całej Polsce.
+          Skorzystaj z wiedzy naszych ekspertów i ciesz się nowym domem.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/oferty" class="btn btn-primary btn-lg">
+            Przeglądaj oferty
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="/kontakt" class="btn btn-outline btn-lg">Bezpłatna konsultacja</a>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats stats-horizontal shadow mt-10 bg-base-100">
+          {stats.map((s) => (
+            <div class="stat px-6">
+              <div class="stat-value text-primary text-2xl">{s.value}</div>
+              <div class="stat-desc text-sm">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES ───────────────────────────────────────────────── -->
+  <section class="py-20 bg-base-100">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold text-base-content">Jak możemy Ci pomóc?</h2>
+        <p class="text-base-content/60 mt-3 max-w-xl mx-auto">
+          Oferujemy kompleksową obsługę rynku nieruchomości — od poszukiwania aż po finalizację transakcji.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {features.map((f) => (
+          <div class="card bg-base-200 shadow-md hover:shadow-xl transition-shadow duration-300">
+            <div class="card-body items-center text-center gap-4">
+              <div class="text-5xl">{f.icon}</div>
+              <h3 class="card-title text-xl">{f.title}</h3>
+              <p class="text-base-content/70 text-sm leading-relaxed">{f.description}</p>
+              <div class="card-actions mt-2">
+                <a href="/oferty" class="btn btn-primary btn-sm btn-outline">Dowiedz się więcej</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ─────────────────────────────────────────────── -->
+  <section class="py-16 bg-primary text-primary-content">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Gotowy na kolejny krok?</h2>
+      <p class="opacity-80 mb-8 text-lg">
+        Skontaktuj się z naszym doradcą już dziś i zacznij poszukiwania swojej wymarzonej nieruchomości.
+      </p>
+      <a href="/kontakt" class="btn btn-lg bg-white text-primary hover:bg-base-200 border-none shadow-lg">
+        Umów bezpłatną konsultację
+      </a>
+    </div>
+  </section>
+</BaseLayout>

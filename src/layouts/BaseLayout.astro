@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Real Estate — Twoje wymarzone nieruchomości',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pl" data-theme="corporate">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-base-100 text-base-content">
+    <!-- Navbar -->
+    <header class="navbar bg-base-200 shadow-sm px-4 lg:px-8">
+      <div class="navbar-start">
+        <a href="/" class="btn btn-ghost text-xl font-bold tracking-tight">
+          🏢 RealEstate
+        </a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 gap-1">
+          <li><a href="/" class="rounded-lg">Start</a></li>
+          <li><a href="/blog" class="rounded-lg">Blog</a></li>
+          <li><a href="/oferty" class="rounded-lg">Oferty</a></li>
+          <li><a href="/kontakt" class="rounded-lg">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end gap-2">
+        <a href="/kontakt" class="btn btn-primary btn-sm">Skontaktuj się</a>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-center bg-base-200 text-base-content p-8 mt-16">
+      <aside>
+        <p class="font-semibold text-lg">🏢 RealEstate</p>
+        <p class="text-sm opacity-70">
+          © {new Date().getFullYear()} RealEstate. Wszelkie prawa zastrzeżone.
+        </p>
+      </aside>
+    </footer>
+  </body>
+</html>
