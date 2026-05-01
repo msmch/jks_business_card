@@ -54,25 +54,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </section>
 
   <!-- ── SEKCJA OFERT ────────────────────────────────────────── -->
-  <section
-    id="oferta"
-    class="py-32 md:py-48 bg-base-200"
-    style="padding-top: 5rem; padding-bottom: 5rem;"
-  >
-    <div
-      class="container mx-auto px-6 md:px-12"
-      style="max-width: 1440px; margin-left: auto; margin-right: auto;"
-    >
+  <section id="oferta" class="offer-section py-32 md:py-48 bg-base-200">
+    <div class="container mx-auto px-6 md:px-12">
       <div
         class="w-full flex flex-col items-center justify-center mb-24 md:mb-32"
         style="margin-bottom: 3rem;"
       >
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-          Aktualne Oferty
+          Oferta
         </h2>
         <p class="text-center text-gray-500 mt-4 max-w-2xl mx-auto">
-          Ekskluzywne nieruchomości starannie wyselekcjonowane dla najbardziej
-          wymagających klientów.
+          Zapraszam do zapoznania się z aktualnymi ofertami nieruchomości.
+          Kliknij w ofertę aby dowiedzieć się więcej.
         </p>
       </div>
 
@@ -331,15 +324,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </section>
 
   <!-- ── SEKCJA O MNIE ────────────────────────────────────────── -->
-  <section
-    id="o-mnie"
-    class="py-32 md:py-48 bg-white"
-    style="padding-top: 5rem; padding-bottom: 5rem;"
-  >
-    <div
-      class="container mx-auto px-6 md:px-12"
-      style="max-width: 1440px; margin-left: auto; margin-right: auto;"
-    >
+  <section id="o-mnie" class="o-mnie-section py-32 md:py-48 bg-white">
+    <div class="container mx-auto px-6 md:px-12">
       <div
         class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
       >
@@ -355,7 +341,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           >
             O mnie
           </h2>
-          <div class="space-y-6 text-gray-600 leading-relaxed text-lg">
+          <div
+            class="space-y-6 text-gray-600 leading-relaxed text-lg text-left md:text-justify"
+          >
             <p>
               Z wykształcenia i doświadczenia jestem prawniczką. Przez lata
               współpracowałam z kancelariami, gdzie rozwijałam skrupulatność,
@@ -400,15 +388,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </section>
 
   <!-- ── SEKCJA BLOGA ────────────────────────────────────────── -->
-  <section
-    id="blog"
-    class="py-32 md:py-48 bg-base-200"
-    style="padding-top: 5rem; padding-bottom: 5rem;"
-  >
-    <div
-      class="container mx-auto px-6 md:px-12"
-      style="max-width: 1440px; margin-left: auto; margin-right: auto;"
-    >
+  <section id="blog" class="blog-section py-32 md:py-48 bg-base-200">
+    <div class="container blog-container mx-auto px-6 md:px-12">
       <div
         class="w-full flex flex-col items-center justify-center mb-24 md:mb-32"
         style="margin-bottom: 5rem;"
@@ -749,6 +730,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     color: #ef0081;
   }
 
+  .offer-section,
+  .o-mnie-section,
+  .blog-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .blog-container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   /* ── RESPONSIVE — mobile ──────────────────────────────────────── */
   @media (max-width: 768px) {
     .hero-section {
@@ -809,6 +803,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     .cta-row {
       display: None;
+    }
+
+    .offer-section,
+    .o-mnie-section,
+    .blog-section {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
     }
   }
 
