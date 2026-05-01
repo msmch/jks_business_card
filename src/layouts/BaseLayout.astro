@@ -38,6 +38,7 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- ── Primary SEO ───────────────────────────────────────── -->
     <title>{fullTitle}</title>
@@ -226,6 +227,17 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
               closeMobileMenu();
             }
           });
+        });
+      });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" is:inline></script>
+    <script is:inline>
+      document.addEventListener("astro:page-load", () => {
+        AOS.init({
+          once: true,
+          offset: 100,
+          duration: 800,
+          easing: "ease-out-cubic",
         });
       });
     </script>
