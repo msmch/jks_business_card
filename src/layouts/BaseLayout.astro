@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
+import { ClientRouter } from "astro:transitions"; //
 
 interface Props {
   title: string;
@@ -28,7 +29,8 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
     <!-- ── Encoding & Viewport ────────────────────────────────── -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <ClientRouter />
+    <title>{fullTitle}</title>
     <!-- ── Fonts ────────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
