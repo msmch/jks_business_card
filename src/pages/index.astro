@@ -398,6 +398,8 @@ const latestPosts = allPosts
     border-radius: 0.375rem;
     text-decoration: none;
     letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
     transition:
       background-color 0.18s ease,
       transform 0.18s ease;
@@ -406,6 +408,32 @@ const latestPosts = allPosts
   .btn-primary-custom:hover {
     background-color: #d40072;
     transform: translateY(-1px);
+  }
+
+  .btn-primary-custom::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 90%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    z-index: 1;
+    transition: left 0s;
+  }
+
+  /* 3. Animujemy przelot na :hover */
+  .btn-primary-custom:hover::after {
+    /* Przelatuje daleko za prawą krawędź */
+    left: 200%;
+    /* Czas trwania błysku (0.6s) - możesz dostosować */
+    transition: left 0.6s ease-in-out;
   }
 
   .btn-ghost-custom {
