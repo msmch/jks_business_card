@@ -78,9 +78,9 @@ const latestPosts = allPosts
         </p>
       </div>
 
-      <div class="relative w-full group/carousel">
+      <div class="relative w-full group/carousel px-4">
         <button
-          class="prev-btn absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-gray-100 hidden md:flex items-center justify-center text-[#EF0081] hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer opacity-0 group-hover/carousel:opacity-100"
+          class="prev-btn absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-gray-100 hidden md:flex items-center justify-center text-[#EF0081] hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer opacity-0 group-hover/carousel:opacity-100"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -97,66 +97,67 @@ const latestPosts = allPosts
           </svg>
         </button>
 
-        <div
-          class="carousel carousel-center w-full max-w-full p-4 gap-6 lg:gap-10 rounded-box relative"
-        >
-          {
-            oferty.map((oferta) => (
-              <div class="carousel-item">
-                <a
-                  href={oferta.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="card w-[22rem] md:w-[28rem] lg:w-[32rem] bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-base-200 rounded-2xl overflow-hidden group"
-                >
-                  <figure class="relative overflow-hidden">
-                    <img
-                      src={oferta.image}
-                      alt={oferta.alt}
-                      class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </figure>
-                  <div class="card-body !p-4 md:!p-6">
-                    <h3 class="card-title text-2xl font-bold text-gray-900 mb-3 leading-tight">
-                      {oferta.title}
-                    </h3>
-                    <div class="flex items-center text-gray-500 text-base mb-6">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5 mr-2 text-gray-400 shrink-0"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
-                        />
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                      <span class="truncate">{oferta.location}</span>
-                    </div>
-                    <div class="mt-auto flex justify-between items-end">
-                      <div class="text-[#EF0081] font-bold text-2xl tracking-tight">
-                        {oferta.price}
+        <div class="swiper my-swiper w-full py-12">
+          <div class="swiper-wrapper">
+            {
+              [...oferty, ...oferty].map((oferta) => (
+                <div class="swiper-slide !w-auto">
+                  <a
+                    href={oferta.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="card w-[20rem] md:w-[26rem] lg:w-[30rem] bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-base-200 rounded-2xl overflow-hidden group block"
+                  >
+                    <figure class="relative overflow-hidden">
+                      <img
+                        src={oferta.image}
+                        alt={oferta.alt}
+                        class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </figure>
+                    <div class="card-body !p-5">
+                      <h3 class="card-title text-xl md:text-2xl font-bold text-gray-900 mb-3 leading-tight">
+                        {oferta.title}
+                      </h3>
+                      <div class="flex items-center text-gray-500 text-sm md:text-base mb-6">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 mr-2 text-gray-400 shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                        </svg>
+                        <span class="truncate">{oferta.location}</span>
+                      </div>
+                      <div class="mt-auto flex justify-between items-end">
+                        <div class="text-[#EF0081] font-bold text-xl md:text-2xl tracking-tight">
+                          {oferta.price}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </a>
-              </div>
-            ))
-          }
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+          <div class="swiper-pagination mt-8 relative"></div>
         </div>
 
         <button
-          class="next-btn absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-gray-100 hidden md:flex items-center justify-center text-[#EF0081] hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer opacity-0 group-hover/carousel:opacity-100"
+          class="next-btn absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-gray-100 hidden md:flex items-center justify-center text-[#EF0081] hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer opacity-0 group-hover/carousel:opacity-100"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -511,116 +512,51 @@ const latestPosts = allPosts
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const carousel = document.querySelector(".carousel") as HTMLElement;
-    if (!carousel) return;
-    const items = Array.from(
-      carousel.querySelectorAll(".carousel-item"),
-    ) as HTMLElement[];
-    if (items.length === 0) return;
+  import Swiper from "swiper";
+  import {
+    Navigation,
+    Pagination,
+    Autoplay,
+    EffectCoverflow,
+  } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+  import "swiper/css/effect-coverflow";
 
-    let autoScrollTimer: ReturnType<typeof setInterval> | undefined;
+  document.addEventListener("astro:page-load", () => {
+    const swiperEl = document.querySelector(".my-swiper");
+    if (!swiperEl) return;
 
-    const scrollNext = () => {
-      if (
-        carousel.scrollLeft + carousel.clientWidth >=
-        carousel.scrollWidth - 10
-      ) {
-        carousel.scrollTo({ left: 0, behavior: "smooth" });
-        return;
-      }
-
-      const carouselCenter = carousel.scrollLeft + carousel.clientWidth / 2;
-      let closestIndex = 0;
-      let minDistance = Infinity;
-
-      items.forEach((item, index) => {
-        const itemCenter = item.offsetLeft + item.clientWidth / 2;
-        const distance = Math.abs(itemCenter - carouselCenter);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIndex = index;
-        }
-      });
-
-      const nextIndex = (closestIndex + 1) % items.length;
-      const nextItem = items[nextIndex];
-      const targetLeft =
-        nextItem.offsetLeft -
-        carousel.clientWidth / 2 +
-        nextItem.clientWidth / 2;
-
-      carousel.scrollTo({ left: targetLeft, behavior: "smooth" });
-    };
-
-    const scrollPrev = () => {
-      if (carousel.scrollLeft <= 10) {
-        // Jesteśmy na początku, przeskakujemy na koniec
-        carousel.scrollTo({ left: carousel.scrollWidth, behavior: "smooth" });
-        return;
-      }
-
-      const carouselCenter = carousel.scrollLeft + carousel.clientWidth / 2;
-      let closestIndex = 0;
-      let minDistance = Infinity;
-
-      items.forEach((item, index) => {
-        const itemCenter = item.offsetLeft + item.clientWidth / 2;
-        const distance = Math.abs(itemCenter - carouselCenter);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIndex = index;
-        }
-      });
-
-      const prevIndex = (closestIndex - 1 + items.length) % items.length;
-      const prevItem = items[prevIndex];
-      const targetLeft =
-        prevItem.offsetLeft -
-        carousel.clientWidth / 2 +
-        prevItem.clientWidth / 2;
-
-      carousel.scrollTo({ left: targetLeft, behavior: "smooth" });
-    };
-
-    const startAutoScroll = () => {
-      clearInterval(autoScrollTimer);
-      autoScrollTimer = setInterval(scrollNext, 4000); // 4 sekundy
-    };
-
-    const stopAutoScroll = () => {
-      clearInterval(autoScrollTimer);
-    };
-
-    // Obsługa dotyku i myszki - zatrzymywanie autoscrolla na hover
-    carousel.addEventListener("mouseenter", stopAutoScroll);
-    carousel.addEventListener("mouseleave", startAutoScroll);
-    carousel.addEventListener("touchstart", stopAutoScroll, { passive: true });
-    carousel.addEventListener("touchend", startAutoScroll, { passive: true });
-
-    // Przyciski
-    const prevBtn = document.querySelector(".prev-btn");
-    const nextBtn = document.querySelector(".next-btn");
-
-    if (prevBtn) {
-      prevBtn.addEventListener("click", () => {
-        stopAutoScroll();
-        scrollPrev();
-      });
-      prevBtn.addEventListener("mouseenter", stopAutoScroll);
-      prevBtn.addEventListener("mouseleave", startAutoScroll);
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", () => {
-        stopAutoScroll();
-        scrollNext();
-      });
-      nextBtn.addEventListener("mouseenter", stopAutoScroll);
-      nextBtn.addEventListener("mouseleave", startAutoScroll);
-    }
-
-    // Inicjalizacja
-    startAutoScroll();
+    new Swiper(".my-swiper", {
+      modules: [Navigation, Pagination, Autoplay, EffectCoverflow],
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      loop: true,
+      initialSlide: 1,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 2.5,
+        slideShadows: false,
+      },
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      navigation: {
+        nextEl: ".next-btn",
+        prevEl: ".prev-btn",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+      },
+    });
   });
 </script>
