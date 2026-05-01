@@ -60,12 +60,14 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
     <!-- ── Header ────────────────────────────────────────────── -->
     <header
       id="main-header"
-      class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-transform duration-300 translate-y-0 md:-translate-y-full"
+      class="fixed w-full top-0 z-50 bg-white/30 backdrop-blur-md shadow-sm transition-transform duration-300 translate-y-0 md:-translate-y-full"
     >
-      <div class="w-full px-6 lg:px-16 2xl:px-24">
-        <div class="flex justify-between items-center h-20 md:h-28">
+      <div class="w-full px-6 md:px-12 lg:px-24 2xl:px-40">
+        <div class="flex justify-between items-center h-16 md:h-20">
           <div class="flex-shrink-0 flex items-center">
-            <a href="/" class="text-xl font-bold text-gray-900">RealEstate</a>
+            <a href="/" class="block transition-transform hover:scale-105">
+              <img src="/images/logo.png" alt="RealEstate Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover shadow-sm" />
+            </a>
           </div>
 
           <div class="flex items-center md:hidden">
@@ -113,10 +115,26 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
           </div>
 
           <nav class="hidden md:flex md:items-center gap-12 lg:gap-16">
-            <a href="/" class="text-gray-700 hover:text-gray-900 py-2 text-sm font-medium transition-colors">Home</a>
-            <a href="/o-nas" class="text-gray-700 hover:text-gray-900 py-2 text-sm font-medium transition-colors">O nas</a>
-            <a href="/oferty" class="text-gray-700 hover:text-gray-900 py-2 text-sm font-medium transition-colors">Oferty</a>
-            <a href="/blog" class="text-gray-700 hover:text-gray-900 py-2 text-sm font-medium transition-colors">Blog</a>
+            <a
+              href="/"
+              class="text-gray-700 hover:text-gray-900 py-2 text-sm font-medium transition-colors"
+              >Home</a
+            >
+            <a
+              href="/o-nas"
+              class="text-gray-700 hover:text-gray-900 py-2 text-sm font-medium transition-colors"
+              >O nas</a
+            >
+            <a
+              href="/oferty"
+              class="text-gray-700 hover:text-gray-900 py-2 text-sm font-medium transition-colors"
+              >Oferty</a
+            >
+            <a
+              href="/blog"
+              class="text-gray-700 hover:text-gray-900 py-2 text-sm font-medium transition-colors"
+              >Blog</a
+            >
           </nav>
         </div>
       </div>
@@ -125,7 +143,7 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
     <!-- Mobile Menu overlay -->
     <div
       id="mobile-menu"
-      class="fixed inset-0 bg-white z-40 -translate-y-full transition-transform duration-500 md:hidden pt-20"
+      class="fixed inset-0 bg-white/95 backdrop-blur-sm z-40 -translate-y-full transition-transform duration-500 md:hidden pt-16"
     >
       <div
         class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center justify-center h-full gap-8"
@@ -145,11 +163,16 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
           class="block px-3 py-2 rounded-md text-2xl font-medium text-gray-900 hover:text-gray-700"
           >Kontakt</a
         >
+        <a
+          href="/blog"
+          class="block px-3 py-2 rounded-md text-2xl font-medium text-gray-900 hover:text-gray-700"
+          >Blog</a
+        >
       </div>
     </div>
 
     <!-- ── Main page content ─────────────────────────────────── -->
-    <main class="pt-20 md:pt-28">
+    <main>
       <slot />
     </main>
 
