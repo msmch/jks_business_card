@@ -76,208 +76,256 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </p>
       </div>
 
-      <div
-        class="carousel carousel-center w-full max-w-full p-4 gap-6 lg:gap-10 rounded-box"
-      >
-        <!-- Karta 1 -->
-        <div class="carousel-item">
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="card w-80 md:w-96 bg-base-100 shadow-sm hover:shadow-md transition-shadow duration-300 border border-base-300 rounded-xl overflow-hidden group"
+      <div class="relative w-full group/carousel">
+        <!-- Lewy przycisk -->
+        <button
+          class="prev-btn absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-gray-100 hidden md:flex items-center justify-center text-[#EF0081] hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer opacity-0 group-hover/carousel:opacity-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"></path></svg
           >
-            <figure class="relative overflow-hidden">
-              <img
-                src="https://placehold.co/600x800/e2e8f0/64748b?text=Apartament"
-                alt="Apartament w Śródmieściu"
-                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </figure>
-            <div class="card-body p-6">
-              <h3 class="card-title text-xl font-bold text-gray-900 mb-2">
-                Apartament w Śródmieściu
-              </h3>
-              <div class="flex items-center text-gray-500 text-sm mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 mr-1.5 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+        </button>
+
+        <div
+          class="carousel carousel-center w-full max-w-full p-4 gap-6 lg:gap-10 rounded-box relative"
+        >
+          <!-- Karta 1 -->
+          <div class="carousel-item">
+            <a
+              href="https://freedom.pl/oferta/dzialka-na-sprzedaz-mszczonow-11177-3685-ogs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card w-[22rem] md:w-[28rem] lg:w-[32rem] bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-base-200 rounded-2xl overflow-hidden group"
+            >
+              <figure class="relative overflow-hidden">
+                <img
+                  src="/images/oferta_1.webp"
+                  alt="Siedlisko w okolicach Mszczonowa"
+                  class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </figure>
+              <div class="card-body !p-4 md:!p-6">
+                <h3
+                  class="card-title text-2xl font-bold text-gray-900 mb-3 leading-tight"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                Warszawa, Śródmieście
-              </div>
-              <div class="mt-auto flex justify-between items-end">
-                <div class="text-[#EF0081] font-bold text-xl">
-                  2 450 000 PLN
+                  Siedlisko w okolicach Mszczonowa
+                </h3>
+                <div class="flex items-center text-gray-500 text-base mb-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2 text-gray-400 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <span class="truncate"
+                    >Siedlisko-Marków Towarzystw k/Mszczonowa</span
+                  >
+                </div>
+                <div class="mt-auto flex justify-between items-end">
+                  <div class="text-[#EF0081] font-bold text-2xl tracking-tight">
+                    399 000 PLN
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
+
+          <!-- Karta 2 -->
+          <div class="carousel-item">
+            <a
+              href="https://freedom.pl/oferta/mieszkanie-na-sprzedaz-pruszkow-przy-ksiezycu-52m2-41045-3685-oms/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card w-[22rem] md:w-[28rem] lg:w-[32rem] bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-base-200 rounded-2xl overflow-hidden group"
+            >
+              <figure class="relative overflow-hidden">
+                <img
+                  src="/images/oferta_2.webp"
+                  alt="Mieszkanie w Pruszkowie przy ul. Przy Księżycu"
+                  class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </figure>
+              <div class="card-body !p-4 md:!p-6">
+                <h3
+                  class="card-title text-2xl font-bold text-gray-900 mb-3 leading-tight"
+                >
+                  Mieszkanie w Pruszkowie przy ul. Przy Księżycu
+                </h3>
+                <div class="flex items-center text-gray-500 text-base mb-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2 text-gray-400 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <span class="truncate">Pruszków, Mazowieckie</span>
+                </div>
+                <div class="mt-auto flex justify-between items-end">
+                  <div class="text-[#EF0081] font-bold text-2xl tracking-tight">
+                    629 000 PLN
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Karta 3 -->
+          <div class="carousel-item">
+            <a
+              href="https://freedom.pl/oferta/dom-na-sprzedaz-stara-wies-89-3m2-17514-3685-ods/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card w-[22rem] md:w-[28rem] lg:w-[32rem] bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-base-200 rounded-2xl overflow-hidden group"
+            >
+              <figure class="relative overflow-hidden">
+                <img
+                  src="/images/oferta_3.webp"
+                  alt="Bliźniak w Starej Wsi"
+                  class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </figure>
+              <div class="card-body !p-4 md:!p-6">
+                <h3
+                  class="card-title text-2xl font-bold text-gray-900 mb-3 leading-tight"
+                >
+                  Bliźniak w Starej Wsi
+                </h3>
+                <div class="flex items-center text-gray-500 text-base mb-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2 text-gray-400 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <span class="truncate">Stara Wieś, Mazowieckie</span>
+                </div>
+                <div class="mt-auto flex justify-between items-end">
+                  <div class="text-[#EF0081] font-bold text-2xl tracking-tight">
+                    750 000 PLN
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Karta 4 -->
+          <div class="carousel-item">
+            <a
+              href="https://freedom.pl/oferta/dom-na-sprzedaz-rusiec-314m2-17516-3685-ods/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card w-[22rem] md:w-[28rem] lg:w-[32rem] bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-base-200 rounded-2xl overflow-hidden group"
+            >
+              <figure class="relative overflow-hidden">
+                <img
+                  src="/images/oferta_4.webp"
+                  alt="Dom w Ruścu"
+                  class="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </figure>
+              <div class="card-body !p-4 md:!p-6">
+                <h3
+                  class="card-title text-2xl font-bold text-gray-900 mb-3 leading-tight"
+                >
+                  Dom w Ruścu
+                </h3>
+                <div class="flex items-center text-gray-500 text-base mb-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2 text-gray-400 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <span class="truncate">Rusiec, Mazowieckie</span>
+                </div>
+                <div class="mt-auto flex justify-between items-end">
+                  <div class="text-[#EF0081] font-bold text-2xl tracking-tight">
+                    1 990 000 PLN
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
 
-        <!-- Karta 2 -->
-        <div class="carousel-item">
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="card w-80 md:w-96 bg-base-100 shadow-sm hover:shadow-md transition-shadow duration-300 border border-base-300 rounded-xl overflow-hidden group"
+        <!-- Prawy przycisk -->
+        <button
+          class="next-btn absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-gray-100 hidden md:flex items-center justify-center text-[#EF0081] hover:bg-white hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer opacity-0 group-hover/carousel:opacity-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"></path></svg
           >
-            <figure class="relative overflow-hidden">
-              <img
-                src="https://placehold.co/600x800/e2e8f0/64748b?text=Willa"
-                alt="Willa na Mokotowie"
-                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </figure>
-            <div class="card-body p-6">
-              <h3 class="card-title text-xl font-bold text-gray-900 mb-2">
-                Luksusowa Willa
-              </h3>
-              <div class="flex items-center text-gray-500 text-sm mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 mr-1.5 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                Warszawa, Mokotów
-              </div>
-              <div class="mt-auto flex justify-between items-end">
-                <div class="text-[#EF0081] font-bold text-xl">
-                  5 900 000 PLN
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Karta 3 -->
-        <div class="carousel-item">
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="card w-80 md:w-96 bg-base-100 shadow-sm hover:shadow-md transition-shadow duration-300 border border-base-300 rounded-xl overflow-hidden group"
-          >
-            <figure class="relative overflow-hidden">
-              <img
-                src="https://placehold.co/600x800/e2e8f0/64748b?text=Penthouse"
-                alt="Penthouse z tarasem"
-                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </figure>
-            <div class="card-body p-6">
-              <h3 class="card-title text-xl font-bold text-gray-900 mb-2">
-                Penthouse z Tarasem
-              </h3>
-              <div class="flex items-center text-gray-500 text-sm mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 mr-1.5 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                Warszawa, Powiśle
-              </div>
-              <div class="mt-auto flex justify-between items-end">
-                <div class="text-[#EF0081] font-bold text-xl">
-                  3 800 000 PLN
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Karta 4 -->
-        <div class="carousel-item">
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="card w-80 md:w-96 bg-base-100 shadow-sm hover:shadow-md transition-shadow duration-300 border border-base-300 rounded-xl overflow-hidden group"
-          >
-            <figure class="relative overflow-hidden">
-              <img
-                src="https://placehold.co/600x800/e2e8f0/64748b?text=Dom"
-                alt="Zabytkowy dom"
-                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </figure>
-            <div class="card-body p-6">
-              <h3 class="card-title text-xl font-bold text-gray-900 mb-2">
-                Zabytkowy Dom
-              </h3>
-              <div class="flex items-center text-gray-500 text-sm mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 mr-1.5 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                Warszawa, Żoliborz
-              </div>
-              <div class="mt-auto flex justify-between items-end">
-                <div class="text-[#EF0081] font-bold text-xl">
-                  4 100 000 PLN
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
+        </button>
       </div>
     </div>
   </section>
@@ -691,18 +739,112 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".carousel");
     if (!carousel) return;
+    const items = Array.from(carousel.querySelectorAll(".carousel-item"));
+    if (items.length === 0) return;
 
-    let scrollAmount = 0;
-    const step = 300; // O ile pikseli ma się przesuwać
+    let autoScrollTimer;
 
-    setInterval(() => {
-      if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
-        // Jeśli dojechał do końca, wraca na start
+    const scrollNext = () => {
+      // Sprawdzamy, czy dojechaliśmy do końca
+      if (
+        carousel.scrollLeft + carousel.clientWidth >=
+        carousel.scrollWidth - 10
+      ) {
         carousel.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        // Przewija w prawo
-        carousel.scrollBy({ left: step, behavior: "smooth" });
+        return;
       }
-    }, 3000); // Zmiana co 3 sekundy (3000 ms)
+
+      const carouselCenter = carousel.scrollLeft + carousel.clientWidth / 2;
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      items.forEach((item, index) => {
+        const itemCenter = item.offsetLeft + item.clientWidth / 2;
+        const distance = Math.abs(itemCenter - carouselCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      const nextIndex = (closestIndex + 1) % items.length;
+      const nextItem = items[nextIndex];
+      const targetLeft =
+        nextItem.offsetLeft -
+        carousel.clientWidth / 2 +
+        nextItem.clientWidth / 2;
+
+      carousel.scrollTo({ left: targetLeft, behavior: "smooth" });
+    };
+
+    const scrollPrev = () => {
+      if (carousel.scrollLeft <= 10) {
+        // Jesteśmy na początku, przeskakujemy na koniec
+        carousel.scrollTo({ left: carousel.scrollWidth, behavior: "smooth" });
+        return;
+      }
+
+      const carouselCenter = carousel.scrollLeft + carousel.clientWidth / 2;
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      items.forEach((item, index) => {
+        const itemCenter = item.offsetLeft + item.clientWidth / 2;
+        const distance = Math.abs(itemCenter - carouselCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      const prevIndex = (closestIndex - 1 + items.length) % items.length;
+      const prevItem = items[prevIndex];
+      const targetLeft =
+        prevItem.offsetLeft -
+        carousel.clientWidth / 2 +
+        prevItem.clientWidth / 2;
+
+      carousel.scrollTo({ left: targetLeft, behavior: "smooth" });
+    };
+
+    const startAutoScroll = () => {
+      clearInterval(autoScrollTimer);
+      autoScrollTimer = setInterval(scrollNext, 4000); // 4 sekundy
+    };
+
+    const stopAutoScroll = () => {
+      clearInterval(autoScrollTimer);
+    };
+
+    // Obsługa dotyku i myszki - zatrzymywanie autoscrolla na hover
+    carousel.addEventListener("mouseenter", stopAutoScroll);
+    carousel.addEventListener("mouseleave", startAutoScroll);
+    carousel.addEventListener("touchstart", stopAutoScroll, { passive: true });
+    carousel.addEventListener("touchend", startAutoScroll, { passive: true });
+
+    // Przyciski
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        stopAutoScroll();
+        scrollPrev();
+      });
+      prevBtn.addEventListener("mouseenter", stopAutoScroll);
+      prevBtn.addEventListener("mouseleave", startAutoScroll);
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        stopAutoScroll();
+        scrollNext();
+      });
+      nextBtn.addEventListener("mouseenter", stopAutoScroll);
+      nextBtn.addEventListener("mouseleave", startAutoScroll);
+    }
+
+    // Inicjalizacja
+    startAutoScroll();
   });
 </script>
