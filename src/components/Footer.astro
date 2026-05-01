@@ -1,12 +1,13 @@
 ---
 /**
  * Footer.astro
- * Minimalna, biała stopka z CTA do Messengera/Facebooka agenta.
- * Zmień MESSENGER_URL na właściwy link do profilu.
+ * Minimalna, biała stopka z CTA do Messengera/Facebooka/Telefonu agenta.
  */
 
-const MESSENGER_URL = "https://www.messenger.com/e2ee/t/993004823061816";
+const MESSENGER_URL = "https://m.me/61569082704747";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61569082704747";
+const PHONE_NUMBER = "+48 576 670 050"; // Wersja do wyświetlania
+const PHONE_CLEAN = "+48576670050"; // Wersja do linku (bez spacji)
 ---
 
 <footer id="kontakt" class="footer-wrapper">
@@ -18,6 +19,32 @@ const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61569082704747";
     </h2>
 
     <div class="footer-ctas">
+      <!-- Phone CTA -->
+      <a
+        href={`tel:${PHONE_CLEAN}`}
+        class="cta-link phone-link"
+        aria-label="Zadzwoń do mnie"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 48 48"
+          class="cta-icon"
+          aria-hidden="true"
+        >
+          <circle cx="24" cy="24" r="24" fill="#10B981"></circle>
+          <g transform="translate(12, 12)">
+            <path
+              fill="#fff"
+              d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+            ></path>
+          </g>
+        </svg>
+        <div class="phone-label-wrapper">
+          <span class="cta-label default-label">Zadzwoń</span>
+          <span class="cta-label hover-label">{PHONE_NUMBER}</span>
+        </div>
+      </a>
+
       <!-- Messenger CTA -->
       <a
         href={MESSENGER_URL}
@@ -143,6 +170,26 @@ const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61569082704747";
     color: #4b5563;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+  }
+
+  .phone-label-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 15px;
+  }
+
+  .hover-label {
+    display: none;
+    color: #10b981;
+  }
+
+  .phone-link:hover .default-label {
+    display: none;
+  }
+
+  .phone-link:hover .hover-label {
+    display: block;
   }
 
   .footer-copy {
