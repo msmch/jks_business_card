@@ -88,29 +88,8 @@
   max-width: var(--layout-max);
   margin-inline: auto;
   padding-inline: 1.5rem;
-  /* 24px — mobile */
 }
 
-@media (min-width: 768px) {
-  .container-layout {
-    padding-inline: 3rem;
-    /* 48px — tablet */
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-layout {
-    padding-inline: 6rem;
-    /* 96px — desktop */
-  }
-}
-
-@media (min-width: 1536px) {
-  .container-layout {
-    padding-inline: 10rem;
-    /* 160px — 2xl */
-  }
-}
 
 /* ─────────────────────────────────────────────────────────────────
    UTILITY CLASSES

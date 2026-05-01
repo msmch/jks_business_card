@@ -836,7 +836,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     let autoScrollTimer: ReturnType<typeof setInterval> | undefined;
 
     const scrollNext = () => {
-      // Sprawdzamy, czy dojechaliśmy do końca
       if (
         carousel.scrollLeft + carousel.clientWidth >=
         carousel.scrollWidth - 10
