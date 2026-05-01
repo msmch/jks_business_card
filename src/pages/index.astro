@@ -63,6 +63,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
           Oferta
         </h2>
+        <br />
         <p class="text-center text-gray-500 mt-4 max-w-2xl mx-auto">
           Zapraszam do zapoznania się z aktualnymi ofertami nieruchomości.
           Kliknij w ofertę aby dowiedzieć się więcej.
@@ -341,6 +342,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           >
             O mnie
           </h2>
+          <br />
           <div
             class="space-y-6 text-gray-600 leading-relaxed text-lg text-left md:text-justify"
           >
@@ -397,6 +399,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
           Najnowsze posty na Blogu
         </h2>
+        <br />
         <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
           Zrozum rynek nieruchomości i zabezpiecz swoje interesy z eksperckimi
           poradami.
@@ -669,6 +672,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     margin: 0;
     display: flex;
     flex-direction: column;
+    white-space: nowrap;
     gap: 0.25rem;
   }
 
@@ -735,10 +739,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   .blog-section {
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .blog-container {
-    max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -785,7 +790,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       line-height: 1.1;
       color: #1f2025;
       letter-spacing: -0.04em;
-      white-space: nowrap;
       margin: 0;
       display: flex;
       flex-direction: column;
