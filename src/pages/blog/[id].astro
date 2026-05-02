@@ -28,7 +28,10 @@ const { Content } = await render(entry);
                     {entry.data.pubDate.toISOString().split("T")[0]} &bull;
                     {entry.data.author}
                 </p>
-                <h1 class="blog-post__title">
+                <h1
+                    class="blog-post__title"
+                    transition:name={`title-${entry.id}`}
+                >
                     {entry.data.title}
                 </h1>
 
@@ -58,8 +61,13 @@ const { Content } = await render(entry);
             document.addEventListener("astro:before-preparation", (e) => {
                 if (e.to.pathname === "/blog" || e.to.pathname === "/") {
                     const cover = document.querySelector(".blog-post__cover");
+                    const title = document.querySelector(".blog-post__title");
+
                     if (cover) {
                         cover.style.viewTransitionName = "none";
+                    }
+                    if (title) {
+                        title.style.viewTransitionName = "none";
                     }
                 }
             });

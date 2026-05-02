@@ -284,7 +284,12 @@ const latestPosts = allPosts
               </div>
 
               <div class="blog-card__body">
-                <h3 class="blog-card__title">{post.data.title}</h3>
+                <h3
+                  class="blog-card__title"
+                  transition:name={`title-${post.id}`}
+                >
+                  {post.data.title}
+                </h3>
                 <p class="blog-card__desc">{post.data.description}</p>
 
                 <div class="blog-card__cta">
