@@ -69,7 +69,10 @@ const { page } = Astro.props;
                             </div>
 
                             <div class="blog-card__body">
-                                <h3 class="blog-card__title">
+                                <h3
+                                    class="blog-card__title"
+                                    transition:name={`title-${post.id}`}
+                                >
                                     {post.data.title}
                                 </h3>
                                 <p class="blog-card__desc">
