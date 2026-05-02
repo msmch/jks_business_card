@@ -38,9 +38,9 @@ const latestPosts = allPosts
         <!-- Główny nagłówek -->
         <h1 class="headline">
           Joanna Kardas-Śmiechowicz
-          <span class="headline-sub hidden md:inline-block"
-            >Agent nieruchomości</span
-          >
+          <span class="headline-sub inline-block">
+            <span id="typewriter"></span><span class="cursor">|</span>
+          </span>
         </h1>
 
         <!-- Krótki opis -->
@@ -384,6 +384,24 @@ const latestPosts = allPosts
     color: #4b5563;
     letter-spacing: 0em;
   }
+  /* ── Typewriter cursor ───────────────────────────────────────── */
+  .cursor {
+    display: inline-block;
+    color: #ef0081;
+    font-weight: 300;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    from,
+    to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
 
   /* Lead — krótki opis */
   .lead {
@@ -600,5 +618,44 @@ const latestPosts = allPosts
         dynamicBullets: true,
       },
     });
+  });
+</script>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const typewriterElement = document.getElementById("typewriter");
+    if (!typewriterElement) return;
+
+    const words = ["Agent nieruchomości", "Prawnik", "Twój doradca"];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+
+      if (isDeleting) {
+        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 15 : 100;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        typeSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 500;
+      }
+
+      setTimeout(typeEffect, typeSpeed);
+    }
+    setTimeout(typeEffect, 1000);
   });
 </script>
