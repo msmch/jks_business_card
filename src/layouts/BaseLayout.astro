@@ -79,7 +79,7 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
         <button
           id="mobile-menu-btn"
           type="button"
-          class="relative w-10 h-10 flex items-center justify-center md:hidden text-gray-500 hover:text-gray-900 focus:outline-none"
+          class="relative w-8 h-14 flex items-center justify-center md:hidden text-gray-500 hover:text-gray-900 focus:outline-none"
           aria-controls="mobile-menu"
           aria-expanded="false"
         >
@@ -243,50 +243,3 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
     </script>
   </body>
 </html>
-
-<style is:global>
-  /*
-   * CSS Reset — czyste, białe tło, zero domyślnych marginesów.
-   * Zakres globalny (is:global) — działa na każdy element w drzewie DOM.
-   */
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-  }
-
-  body {
-    background-color: #ffffff;
-    color: #1f2025;
-    min-height: 100vh;
-    overflow-x: hidden;
-    font-family:
-      "Inter",
-      "Segoe UI",
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  img,
-  video {
-    max-width: 100%;
-    display: block;
-  }
-
-  a {
-    color: inherit;
-  }
-</style>

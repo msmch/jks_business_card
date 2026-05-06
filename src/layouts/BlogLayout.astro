@@ -95,52 +95,6 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
 </html>
 
 <style is:global>
-  /*
-   * CSS Reset
-   */
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-  }
-
-  body {
-    background-color: #ffffff;
-    color: #1f2025;
-    min-height: 100vh;
-    overflow-x: hidden;
-    font-family:
-      "Inter",
-      "Segoe UI",
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  img,
-  video {
-    max-width: 100%;
-    display: block;
-  }
-
-  a {
-    color: inherit;
-  }
-
-  /* ── Blog-specific header ──────────────────────────────────── */
-
   .blog-header {
     position: fixed;
     top: 0;
@@ -151,55 +105,46 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(232, 234, 237, 0.8);
-    height: 4rem; /* 64px — same as mobile header height */
+    height: 4rem;
   }
-
   @media (min-width: 768px) {
     .blog-header {
-      height: 5rem; /* 80px — same as desktop header height */
+      height: 5rem;
     }
   }
-
   .blog-header__inner {
     display: flex;
     align-items: center;
     height: 100%;
   }
-
   .blog-logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
     transition: opacity 0.2s ease;
   }
-
   .blog-logo-link:hover {
     opacity: 0.8;
   }
-
   .blog-logo-img {
-    /* Circular logo fitting within the header height with comfortable padding */
-    width: 2.5rem; /* 40px */
+    width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
   }
-
   @media (min-width: 768px) {
     .blog-logo-img {
-      width: 3rem; /* 48px */
+      width: 3rem;
       height: 3rem;
     }
   }
-
   .blog-main {
-    padding-top: 4rem; /* offset for fixed blog header (mobile) */
+    padding-top: 4rem;
   }
-
   @media (min-width: 768px) {
     .blog-main {
-      padding-top: 5rem; /* offset for fixed blog header (desktop) */
+      padding-top: 5rem;
     }
   }
 </style>
