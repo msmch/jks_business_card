@@ -191,7 +191,7 @@ const { page } = Astro.props;
     .blog-intro__sub {
         font-size: 0.875rem;
         font-weight: 600;
-        color: #ef0081;
+        color: var(--color-primary)
         letter-spacing: 0.05em;
         text-transform: uppercase;
     }
@@ -253,26 +253,5 @@ const { page } = Astro.props;
         color: #6b7280;
         font-weight: 500;
         font-size: 0.9375rem;
-    }
-
-    /* ── btn-ghost-custom (scoped) ───────────────────────────── */
-    :global(.btn-ghost-custom) {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.375rem;
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: #4b5563;
-        text-decoration: none;
-        padding: 0.5rem 0.75rem;
-        border-radius: 0.5rem;
-        transition:
-            color 0.2s ease,
-            background-color 0.2s ease;
-    }
-
-    :global(.btn-ghost-custom:hover) {
-        color: #ef0081;
-        background-color: #fdf2f8;
     }
 </style>
