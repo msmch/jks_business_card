@@ -177,7 +177,7 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
     <Footer />
 
     <script is:inline>
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("astro:page-load", () => {
         const header = document.getElementById("main-header");
         let isMenuOpen = false;
 
@@ -185,6 +185,9 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
         const mobileMenu = document.getElementById("mobile-menu");
         const iconMenu = document.getElementById("icon-menu");
         const iconClose = document.getElementById("icon-close");
+
+        // security to prevent null error
+        if (!menuBtn || !mobileMenu) return;
 
         const mobileLinks = mobileMenu.querySelectorAll("a");
 
