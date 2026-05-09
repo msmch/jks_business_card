@@ -24,15 +24,15 @@ const { page } = Astro.props;
     <section class="blog-intro">
         <div class="container-layout blog-intro__inner">
             <!-- Zdjęcie agentki -->
-            <div class="blog-intro__image-wrap">
-                <div class="relative w-full max-w-lg mx-auto lg:max-w-none">
-                    <img
-                        src="/images/agent_blog.webp"
-                        alt="Joanna Kardas-Śmiechowicz — autorka bloga"
-                        class="w-full h-auto rounded-[2rem] object-cover shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-gray-100"
-                    />
-                </div>
-            </div>
+<div class="blog-intro__image-wrap">
+    <div class="relative w-full md:h-full max-w-lg mx-auto lg:max-w-none">
+        <img
+            src="/images/agent_blog.webp"
+            alt="Joanna Kardas-Śmiechowicz — autorka bloga"
+            class="w-full h-auto md:h-full rounded-[2rem] object-cover shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-gray-100"
+        />
+    </div>
+</div>
 
             <!-- Tekst wprowadzenia -->
             <div class="blog-intro__content">
@@ -127,11 +127,21 @@ const { page } = Astro.props;
 
 <style>
     /* ── Intro section ────────────────────────────────────────── */
-
     .blog-intro {
         background: linear-gradient(135deg, #f5f6f8 0%, #ffffff 100%);
         padding-block: 2rem 3rem;
         border-bottom: 1px solid #e8eaed;
+    }
+
+    @media (min-width: 768px) {
+        .blog-intro {
+            height: calc(100svh - 4rem);
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding-block: 0 2rem;
+        }
     }
 
     .blog-intro__inner {
@@ -145,6 +155,8 @@ const { page } = Astro.props;
         .blog-intro__inner {
             flex-direction: row;
             align-items: center;
+            justify-content: center;
+            height: 100%;
             gap: 4rem;
         }
     }
@@ -157,6 +169,7 @@ const { page } = Astro.props;
     @media (min-width: 768px) {
         .blog-intro__image-wrap {
             width: 48%;
+            height: 90%;
         }
     }
 
