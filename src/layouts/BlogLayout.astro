@@ -17,7 +17,8 @@ const {
   ogImage = "/og-default.png",
 } = Astro.props;
 
-const siteName = "RealEstate";
+const absoluteOgImageUrl = new URL(ogImage, Astro.url).href;
+const siteName = "Joanna Kardas-Śmiechowicz";
 const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
 ---
 
@@ -43,20 +44,22 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    <!-- ── Open Graph ────────────────────────────────────────── -->
+    <!-- ── Open Graph (Facebook / Messenger preview) ─────────── -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content="pl_PL" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={absoluteOgImageUrl} />
 
     <!-- ── Twitter / X Card ──────────────────────────────────── -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={absoluteOgImageUrl} />
 
     <!-- ── Favicon ───────────────────────────────────────────── -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
