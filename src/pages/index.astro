@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import { oferty } from "../data/oferty.ts";
+import { oferty } from "../data/ofers.ts";
+import { FACEBOOK_URL } from "../data/socials.ts";
 
 // Pobieramy wszystkie wpisy z kolekcji 'blog' i sortujemy od najnowszego
 const allPosts = await getCollection("blog");
@@ -64,15 +65,12 @@ const latestPosts = allPosts
   <!-- ── SEKCJA OFERT ────────────────────────────────────────── -->
   <section id="oferta" class="offer-section bg-base-200">
     <div class="container-layout">
-      <div
-        class="w-full flex flex-col items-center justify-center mb-24 md:mb-32"
-        style="margin-bottom: 3rem;"
-      >
+      <div class="w-full flex flex-col items-center justify-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
           Oferta
         </h2>
         <br />
-        <p class="text-center text-gray-500 mt-4 max-w-2xl mx-auto">
+        <p class="text-center text-gray-500 mt-4 max-w-4xl mx-auto">
           Zapraszam do zapoznania się z aktualnymi ofertami nieruchomości.
           Kliknij w ofertę aby dowiedzieć się więcej.
         </p>
@@ -173,6 +171,23 @@ const latestPosts = allPosts
               d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
           </svg>
         </button>
+      </div>
+      <div class="w-full flex flex-col items-center justify-center mt-12">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+          Zachęcam do kontaktu!
+        </h3>
+        <p class="text-center text-gray-500 mt-4 max-w-4xl mx-auto">
+          Masz na oku inne interesujące ogłoszenie? A może chcesz sprzedać swoją
+          nieruchomość?
+        </p>
+        <p class="text-center text-gray-500 mt-4 max-w-4xl mx-auto">
+          Odezwij się, na przykład przez mój profil na <a
+            href={FACEBOOK_URL}
+            class="text-primary hover:text-primary/80 underline font-medium transition-colors"
+            >Facebooku</a
+          > — pomogę Ci w analizie oferty i przejściu przez całą transakcję bezpiecznie
+          i świadomie.
+        </p>
       </div>
     </div>
   </section>
