@@ -14,7 +14,11 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<BlogLayout title={entry.data.title} description={entry.data.description}>
+<BlogLayout
+    title={entry.data.title}
+    description={entry.data.description}
+    ogImage={entry.data.coverImage}
+>
     <div
         id="reading-progress"
         class="fixed top-0 left-0 h-1.5 bg-primary z-[100] transition-all duration-150 w-0 shadow-[0_0_10px_var(--color-primary)]"
