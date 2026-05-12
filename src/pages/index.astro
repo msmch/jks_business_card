@@ -23,11 +23,11 @@ const latestPosts = allPosts
   <section class="hero-section">
     <div class="hero-grid">
       <!-- ── LEWA KOLUMNA — placeholder na zdjęcie agenta ─────── -->
-      <div class="photo-col bg-white">
+      <div class="photo-col mt-auto">
         <img
           src="/images/agent_zdjecie.webp"
           alt="Zdjęcie agenta"
-          class="w-full h-full object-cover object-center aspect-[3/4] md:aspect-auto overflow-hidden"
+          class="w-full h-full object-cover object-bottom aspect-[3/4] md:aspect-auto overflow-hidden"
         />
       </div>
 
@@ -319,7 +319,8 @@ const latestPosts = allPosts
 
 <style>
   .hero-section {
-    min-height: 100svh;
+    height: 100svh;
+    overflow: hidden;
     display: flex;
     align-items: stretch;
     background-color: var(--color-base-100);
@@ -332,9 +333,10 @@ const latestPosts = allPosts
   }
 
   .photo-col {
+    height: 100%;
+    overflow: hidden;
     display: flex;
     align-items: stretch;
-    padding-top: 2rem;
     background-color: var(--color-base-100);
   }
 
@@ -347,15 +349,6 @@ const latestPosts = allPosts
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     gap: 1.75rem;
-  }
-
-  @media (min-width: 768px) {
-    .content-col {
-      padding-right: 6rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
   }
 
   .headline {
@@ -411,14 +404,13 @@ const latestPosts = allPosts
     margin-top: 0.5rem;
   }
 
-  @media (max-width: 768px) {
-    .hero-section {
-      height: 100svh;
-      min-height: 100svh;
-      max-height: 100svh;
-      overflow: hidden;
+  @media (min-width: 768px) {
+    .content-col {
+      padding-right: 6rem;
     }
+  }
 
+  @media (max-width: 768px) {
     .hero-grid {
       display: flex;
       flex-direction: column;
