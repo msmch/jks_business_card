@@ -1,6 +1,7 @@
 ---
 import BlogLayout from "../../layouts/BlogLayout.astro";
 import { getCollection, render } from "astro:content";
+import AuthorCard from "../../components/AuthorCard.astro";
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection("blog");
@@ -50,7 +51,7 @@ const { Content } = await render(entry);
             <div
                 class="prose prose-lg prose-gray max-w-none prose-headings:text-base-content prose-a:text-primary hover:prose-a:text-[#d40072]"
             >
-                <Content />
+                <Content components={{ AuthorCard }} />
             </div>
 
             <div class="blog-post__back">
