@@ -1,9 +1,7 @@
 ---
 /**
  * Footer.astro
- * Minimalna, biała stopka z CTA do Messengera/Facebooka/Telefonu agenta.
  */
-
 import {
   MESSENGER_URL,
   FACEBOOK_URL,
@@ -12,99 +10,153 @@ import {
 } from "../data/socials.ts";
 ---
 
-<footer id="kontakt" class="footer-wrapper">
-  <div class="footer-inner">
-    <h2
-      class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-8"
+<footer
+  id="kontakt"
+  class="bg-base-200 border-t border-base-300 pt-16 pb-8 overflow-visible"
+>
+  <div class="container-layout mx-auto px-6">
+    <div
+      class="flex flex-col md:flex-row w-full md:items-center gap-12 text-center md:text-left"
     >
-      Znajdziesz mnie tutaj
-    </h2>
+      <div class="w-full md:w-1/2 flex flex-col items-center md:items-start">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          Joanna Kardas-Śmiechowicz
+        </h3>
+        <p class="text-gray-500 text-sm leading-relaxed md:pr-12">
+          Prawnik i Agent Nieruchomości. Bezpieczne transakcje, rzetelne
+          doradztwo i pełne wsparcie na każdym etapie.
+        </p>
+      </div>
 
-    <div class="footer-ctas">
-      <!-- Phone CTA -->
-      <a
-        href={`tel:${PHONE_CLEAN}`}
-        class="cta-link phone-link"
-        aria-label="Zadzwoń do mnie"
+      <div
+        class="w-full md:w-1/2 flex flex-col md:flex-row md:items-start justify-evenly gap-8"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 48 48"
-          class="cta-icon"
-          aria-hidden="true"
-        >
-          <circle cx="24" cy="24" r="24" fill="#10B981"></circle>
-          <g transform="translate(12, 12)">
-            <path
-              fill="#fff"
-              d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
-            ></path>
-          </g>
-        </svg>
-        <div class="phone-label-wrapper">
-          <span class="cta-label default-label">Zadzwoń</span>
-          <span class="cta-label hover-label">{PHONE_NUMBER}</span>
+        <div class="flex flex-col items-center">
+          <h4
+            class="font-bold text-gray-900 mb-4 uppercase tracking-wider text-sm"
+          >
+            Mapa strony
+          </h4>
+          <nav class="flex flex-col gap-3 items-center">
+            <a
+              href="/#o-mnie"
+              class="text-gray-500 hover:text-primary transition-colors text-sm"
+              >O mnie</a
+            >
+            <a
+              href="/#oferta"
+              class="text-gray-500 hover:text-primary transition-colors text-sm"
+              >Oferty</a
+            >
+            <a
+              href="/blog"
+              class="text-gray-500 hover:text-primary transition-colors text-sm"
+              >Blog</a
+            >
+          </nav>
         </div>
-      </a>
 
-      <!-- Messenger CTA -->
-      <a
-        href={MESSENGER_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="cta-link"
-        aria-label="Napisz do mnie na Messengerze"
-      >
-        <!-- Messenger SVG icon -->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 48 48"
-          class="cta-icon"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="msg-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#0078FF"></stop>
-              <stop offset="100%" stop-color="#A334FA"></stop>
-            </linearGradient>
-          </defs>
-          <circle cx="24" cy="24" r="24" fill="url(#msg-grad)"></circle>
-          <path
-            fill="#fff"
-            d="M24 6C14.06 6 6 13.6 6 23c0 5.34 2.66 10.1 6.82 13.23V42l5.9-3.24C20.47 39.54 22.2 39.8 24 39.8c9.94 0 18-7.6 18-16.8S33.94 6 24 6zm1.9 22.6-4.57-4.87-8.93 4.87 9.82-10.43 4.68 4.87 8.82-4.87-9.82 10.43z"
-          ></path>
-        </svg>
-        <span class="cta-label">Messenger</span>
-      </a>
+        <div class="flex flex-col items-center">
+          <h4
+            class="font-bold text-gray-900 mb-4 uppercase tracking-wider text-sm"
+          >
+            Bądźmy w kontakcie
+          </h4>
+          <div class="flex gap-4 justify-center">
+            <div class="relative group">
+              <a
+                href={`tel:${PHONE_CLEAN}`}
+                class="block hover:-translate-y-1 transition-transform duration-200"
+                aria-label="Zadzwoń do mnie"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 48 48"
+                  class="w-12 h-12 lg:w-14 lg:h-14 shadow-sm rounded-full group-hover:shadow-md transition-shadow"
+                >
+                  <circle cx="24" cy="24" r="24" fill="#10B981"></circle>
+                  <g transform="translate(12, 12)">
+                    <path
+                      fill="#fff"
+                      d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                    ></path>
+                  </g>
+                </svg>
+              </a>
+              <div
+                class="absolute -top-12 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs font-bold py-1.5 px-3 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-lg z-10"
+              >
+                {PHONE_NUMBER}
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-solid border-t-gray-900 border-t-4 border-x-transparent border-x-4 border-b-0"
+                >
+                </div>
+              </div>
+            </div>
 
-      <!-- Facebook CTA -->
-      <a
-        href={FACEBOOK_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="cta-link"
-        aria-label="Odwiedź mój profil na Facebooku"
-      >
-        <!-- Facebook SVG icon -->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 48 48"
-          class="cta-icon"
-          aria-hidden="true"
-        >
-          <circle cx="24" cy="24" r="24" fill="#1877F2"></circle>
-          <path
-            fill="#fff"
-            d="M31.5 16H28c-.83 0-1 .42-1 1v2.5h4.5l-.6 4.5H27V38h-5V24h-3v-4.5h3V17c0-3.87 2.37-6 5.79-6 1.65 0 3.71.3 3.71.3V16z"
-          ></path>
-        </svg>
-        <span class="cta-label">Facebook</span>
-      </a>
+            <a
+              href={MESSENGER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block hover:-translate-y-1 transition-transform duration-200"
+              aria-label="Napisz do mnie na Messengerze"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 48 48"
+                class="w-12 h-12 lg:w-14 lg:h-14 shadow-sm rounded-full group-hover:shadow-md transition-shadow"
+              >
+                <defs>
+                  <linearGradient
+                    id="msg-grad"
+                    x1="0%"
+                    y1="100%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stop-color="#0078FF"></stop>
+                    <stop offset="100%" stop-color="#A334FA"></stop>
+                  </linearGradient>
+                </defs>
+                <circle cx="24" cy="24" r="24" fill="url(#msg-grad)"></circle>
+                <path
+                  fill="#fff"
+                  d="M24 6C14.06 6 6 13.6 6 23c0 5.34 2.66 10.1 6.82 13.23V42l5.9-3.24C20.47 39.54 22.2 39.8 24 39.8c9.94 0 18-7.6 18-16.8S33.94 6 24 6zm1.9 22.6-4.57-4.87-8.93 4.87 9.82-10.43 4.68 4.87 8.82-4.87-9.82 10.43z"
+                ></path>
+              </svg>
+            </a>
+
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block hover:-translate-y-1 transition-transform duration-200"
+              aria-label="Odwiedź mój profil na Facebooku"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 48 48"
+                class="w-12 h-12 lg:w-14 lg:h-14 shadow-sm rounded-full group-hover:shadow-md transition-shadow"
+              >
+                <circle cx="24" cy="24" r="24" fill="#1877F2"></circle>
+                <path
+                  fill="#fff"
+                  d="M31.5 16H28c-.83 0-1 .42-1 1v2.5h4.5l-.6 4.5H27V38h-5V24h-3v-4.5h3V17c0-3.87 2.37-6 5.79-6 1.65 0 3.71.3 3.71.3V16z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <p class="footer-copy">
-      © {new Date().getFullYear()} Joanna Kardas-Śmiechowicz. Wszelkie prawa zastrzeżone.
-    </p>
+    <div
+      class="mt-16 pt-8 border-t border-base-300 text-center flex flex-col items-center"
+    >
+      <p class="text-sm text-gray-400">
+        © {new Date().getFullYear()} Joanna Kardas-Śmiechowicz. Wszelkie prawa zastrzeżone.
+      </p>
+    </div>
   </div>
 </footer>
 
