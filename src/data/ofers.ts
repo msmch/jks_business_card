@@ -8,14 +8,6 @@ export const oferty = [
         price: "399 000 PLN"
     },
     {
-        url: "https://freedom.pl/oferta/mieszkanie-na-sprzedaz-pruszkow-przy-ksiezycu-52m2-41045-3685-oms/",
-        image: "/images/oferta_2.webp",
-        alt: "Mieszkanie w Pruszkowie przy ul. Przy Księżycu",
-        title: "Mieszkanie w Pruszkowie przy ul. Przy Księżycu",
-        location: "Pruszków, Mazowieckie",
-        price: "629 000 PLN"
-    },
-    {
         url: "https://freedom.pl/oferta/dom-na-sprzedaz-stara-wies-89-3m2-17514-3685-ods/",
         image: "/images/oferta_3.webp",
         alt: "Bliźniak w Starej Wsi",
