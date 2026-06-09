@@ -2,6 +2,9 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
+import { Image } from "astro:assets";
+
+import logoImg from "../assets/images/logo.webp";
 
 interface Props {
   title: string;
@@ -78,9 +81,10 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
     <header id="blog-header" class="blog-header">
       <div class="container-layout blog-header__inner">
         <a href="/" class="blog-logo-link" aria-label="Wróć na stronę główną">
-          <img
-            src="/images/logo.webp"
+          <Image
+            src={logoImg}
             alt="Logo — strona główna"
+            loading="eager"
             class="blog-logo-img"
           />
         </a>

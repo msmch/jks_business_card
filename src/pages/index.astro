@@ -1,8 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { oferty } from "../data/ofers.ts";
 import { FACEBOOK_URL } from "../data/socials.ts";
+
+import agentPhoto from "../assets/images/agent_zdjecie.webp";
+import agentOmnie from "../assets/images/agent_o_mnie.webp";
 
 // Pobieramy wszystkie wpisy z kolekcji 'blog' i sortujemy od najnowszego
 const allPosts = await getCollection("blog");
@@ -24,9 +28,11 @@ const latestPosts = allPosts
     <div class="hero-grid">
       <!-- ── LEWA KOLUMNA — placeholder na zdjęcie agenta ─────── -->
       <div class="photo-col mt-auto">
-        <img
-          src="/images/agent_zdjecie.webp"
+        <Image
+          src={agentPhoto}
           alt="Zdjęcie agenta"
+          loading="eager"
+          fetchpriority="high"
           class="w-full h-full object-cover object-bottom aspect-[3/4] md:aspect-auto overflow-hidden"
         />
       </div>
@@ -107,9 +113,10 @@ const latestPosts = allPosts
                     class="card w-[20rem] md:w-[26rem] lg:w-[30rem] bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-base-200 rounded-2xl overflow-hidden group block"
                   >
                     <figure class="relative overflow-hidden">
-                      <img
+                      <Image
                         src={oferta.image}
                         alt={oferta.alt}
+                        loading="lazy"
                         class="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     </figure>
@@ -245,9 +252,10 @@ const latestPosts = allPosts
           data-aos-delay="200"
         >
           <div class="relative w-full max-w-lg mx-auto lg:max-w-none">
-            <img
-              src="/images/agent_o_mnie.webp"
+            <Image
+              src={agentOmnie}
               alt="Joanna Kardas-Śmiechowicz - O mnie"
+              loading="lazy"
               class="w-full h-auto rounded-[2rem] object-cover shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border border-gray-100"
             />
           </div>
@@ -285,9 +293,10 @@ const latestPosts = allPosts
               data-aos-delay={index * 150}
             >
               <div class="blog-card__image-wrap">
-                <img
+                <Image
                   src={post.data.coverImage}
                   alt={post.data.alt}
+                  loading="lazy"
                   class="blog-card__image"
                   transition:name={`img-${post.id}`}
                 />
