@@ -22,5 +22,21 @@ export const oferty = [
         title: "Dom w Ruścu",
         location: "Rusiec, Mazowieckie",
         price: "1 990 000 PLN"
-    }
+    },
+        {
+        url: "https://freedom.pl/oferta/dom-na-sprzedaz-kampinos-117-3m2-17933-3685-ods/",
+        image: "/images/oferta_5.webp",
+        alt: "Nowoczesny dom przy Kampinosie",
+        title: "Nowoczesny dom przy Kampinosie",
+        location: "Kampinos, Mazowieckie",
+        price: "879 000 PLN"
+    },
+    {
+        url: "https://freedom.pl/oferta/dom-na-sprzedaz-kampinos-124-5m2-17960-3685-ods/",
+        image: "/images/oferta_6.webp",
+        alt: "Nowoczesny dom przy Kampinosie",
+        title: "Nowoczesny dom przy Kampinosie",
+        location: "Kampinos, Mazowieckie",
+        price: "859 000 PLN"
+    },
 ];
