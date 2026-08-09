@@ -59,43 +59,14 @@ const { Content } = await render(entry);
             </div>
         </div>
 
-        <script is:inline>
-            // Skrypt obsługujący ViewTransitions dla zdjęcia
-            document.addEventListener("astro:before-preparation", (e) => {
-                if (e.to.pathname === "/blog" || e.to.pathname === "/") {
-                    const cover = document.querySelector(".blog-post__cover");
-                    const title = document.querySelector(".blog-post__title");
+        <script>
+            import { initBlogTransitions } from "../../scripts/blogTransitions.js";
+            import { initReadingProgress } from "../../scripts/readingProgress.js";
 
-                    if (cover) {
-                        cover.style.viewTransitionName = "none";
-                    }
-                    if (title) {
-                        title.style.viewTransitionName = "none";
-                    }
-                }
-            });
-
-            // Skrypt obsługujący pasek postępu
+            initBlogTransitions();
+            
             document.addEventListener("astro:page-load", () => {
-                const progressBar = document.getElementById("reading-progress");
-                if (!progressBar) return;
-
-                const updateProgress = () => {
-                    const scrollPx =
-                        document.documentElement.scrollTop ||
-                        document.body.scrollTop;
-                    const winHeightPx =
-                        document.documentElement.scrollHeight -
-                        document.documentElement.clientHeight;
-
-                    if (winHeightPx > 0) {
-                        const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
-                        progressBar.style.width = scrolled;
-                    }
-                };
-
-                window.addEventListener("scroll", updateProgress);
-                updateProgress();
+                initReadingProgress();
             });
         </script>
     </article>
