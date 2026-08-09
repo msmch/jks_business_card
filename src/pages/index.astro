@@ -200,7 +200,7 @@ const latestPosts = allPosts
   */}
 
   <!-- ── SEKCJA O MNIE ────────────────────────────────────────── -->
-  <section id="o-mnie" class="o-mnie-section bg-white overflow-hidden">
+  <section id="o-mnie" class="o-mnie-section bg-white overflow-hidden py-16 md:py-24">
     <div class="container-layout">
       <div
         class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
@@ -216,33 +216,45 @@ const latestPosts = allPosts
           >
             O mnie
           </h2>
-          <br />
+          
           <div
-            class="space-y-6 text-gray-600 leading-relaxed text-left md:text-justify"
+            class="space-y-6 text-gray-600 leading-relaxed text-left md:text-justify mb-10"
           >
             <p>
-              Z wykształcenia i doświadczenia jestem prawniczką. Przez lata
-              współpracowałam z kancelariami, gdzie rozwijałam skrupulatność,
-              odpowiedzialność oraz umiejętność spojrzenia na sprawy z różnych
-              perspektyw. Z czasem poczułam potrzebę pracy bliżej ludzi — w
-              dynamicznym środowisku, gdzie moje działania mają realny wpływ na
-              ważne decyzje życiowe.
+            Z wykształcenia i wieloletniego doświadczenia jestem prawniczką. Praca w kancelariach nauczyła mnie dbać o każdy szczegół i patrzeć na sprawy z wielu perspektyw. Z czasem poczułam jednak, że chcę być bliżej ludzi. Tak trafiłam do dynamicznego świata nieruchomości.
             </p>
             <p>
-              Moja przygoda z nieruchomościami rozpoczęła się ponad 10 lat temu,
-              kiedy szukałam swojego pierwszego mieszkania. Emocje, pytania i
-              wątpliwości, które temu towarzyszyły, zainspirowały mnie do
-              zgłębiania tego obszaru i stopniowo przekształciły pasję w
-              profesjonalną ścieżkę zawodową.
+            Dziś, jako agentka, łączę dwie najważniejsze rzeczy: uważnie słucham Twoich potrzeb i wykorzystuję prawniczą wiedzę, żeby zapewnić Ci 100% bezpieczeństwa podczas transakcji. Wierzę, że nieruchomości to znacznie więcej niż metry kwadratowe - to Twoja przestrzeń do życia i spełniania marzeń. Moją misją jest pomóc Ci znaleźć to jedno wyjątkowe miejsce, które z dumą nazwiesz domem.
             </p>
-            <p>
-              Obecnie, jako agentka nieruchomości, łączę uważność na potrzeby
-              klientów, dbałość o każdy detal oraz prawnicze doświadczenie,
-              które daje moim klientom poczucie bezpieczeństwa. Wierzę, że
-              nieruchomości to coś więcej niż mury — to przestrzeń do życia,
-              rozwoju i spełniania marzeń. Moją misją jest pomagać klientom w
-              znalezieniu miejsca, które naprawdę mogą nazwać swoim domem.
-            </p>
+          </div>
+
+          <!-- ── STATS BOXES (Stylizowane na wzór załącznika) ── -->
+          <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <!-- Box 1 -->
+            <div class="flex items-center gap-5 p-5 md:p-0 rounded-2xl bg-gray-50 md:bg-transparent group">
+              <div class="bg-white md:bg-primary/10 text-primary p-3 md:p-4 rounded-full shadow-sm md:shadow-none group-hover:scale-110 transition-transform duration-300 shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 md:w-9 md:h-9">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <p class="text-xl font-extrabold text-primary tracking-tight leading-none mb-1">10+</p>
+                <p class="text-[11px] md:text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Lat doświadczenia</p>
+              </div>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="flex items-center gap-5 p-5 md:p-0 rounded-2xl bg-gray-50 md:bg-transparent group">
+              <div class="bg-white md:bg-primary/10 text-primary p-3 md:p-4 rounded-full shadow-sm md:shadow-none group-hover:scale-110 transition-transform duration-300 shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 md:w-9 md:h-9">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <p class="text-xl font-extrabold text-primary tracking-tight leading-none mb-1">Agent &amp; Prawnik</p>
+                <p class="text-[11px] md:text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Bezpieczeństwo</p>
+              </div>
+            </div>
           </div>
         </div>
 
