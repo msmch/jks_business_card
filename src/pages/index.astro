@@ -32,31 +32,36 @@ const latestPosts = allPosts
       </div>
 
       <!-- ── PRAWA KOLUMNA — treść ──────────────────────────────── -->
-      <div class="content-col px-6 md:pl-20 lg:pl-24">
-        <!-- Kicker / tag marki -->
-        <p class="kicker">PRAWO &amp; NIERUCHOMOŚCI</p>
+      <div class="content-col px-6 md:pl-20 lg:pl-24 relative" id="hero-right-col">
+        
+        <!-- Canvas - particles -->
+        <canvas id="right-particles" class="hidden md:block absolute -top-16 -left-16 w-[calc(100%+8rem)] h-[calc(100%+8rem)] pointer-events-none z-0 opacity-60"></canvas>
+        <div class="relative z-10 flex flex-col gap-7">
+          <!-- Kicker / tag marki -->
+          <p class="kicker">PRAWO &amp; NIERUCHOMOŚCI</p>
 
-        <!-- Główny nagłówek -->
-        <h1 class="headline">
-          Joanna Kardas-Śmiechowicz
-          <span class="headline-sub inline-block">
-            <span id="typewriter"></span><span class="cursor">|</span>
-          </span>
-        </h1>
+          <!-- Główny nagłówek -->
+          <h1 class="headline">
+            Joanna Kardas-Śmiechowicz
+            <span class="headline-sub inline-block">
+              <span id="typewriter"></span><span class="cursor">|</span>
+            </span>
+          </h1>
 
-        <!-- Krótki opis -->
-        <p class="lead lead-desktop">
-          Pośrednictwo w obrocie nieruchomościami.
-        </p>
-        <p class="lead">
-          Bezpieczeństwo umów, due diligence, negocjacje — wszystko w jednym
-          miejscu.
-        </p>
+          <!-- Krótki opis -->
+          <p class="lead lead-desktop">
+            Pośrednictwo w obrocie nieruchomościami.
+          </p>
+          <p class="lead">
+            Bezpieczeństwo umów, due diligence, negocjacje — wszystko w jednym
+            miejscu.
+          </p>
 
-        <!-- CTA -->
-        <div class="cta-row">
-          <a href="#kontakt" class="btn-primary-custom">Umów konsultację</a>
-          <!-- <a href="#oferta" class="btn-ghost-custom">Zobacz ofertę →</a> -->
+          <!-- CTA -->
+          <div class="cta-row">
+            <a href="#kontakt" class="btn-primary-custom">Umów konsultację</a>
+            <!-- <a href="#oferta" class="btn-ghost-custom">Zobacz ofertę →</a> -->
+          </div>
         </div>
       </div>
     </div>
@@ -480,90 +485,13 @@ const latestPosts = allPosts
 </style>
 
 <script>
-  import Swiper from "swiper";
-  import {
-    Navigation,
-    Pagination,
-    Autoplay,
-    EffectCoverflow,
-  } from "swiper/modules";
-  import "swiper/css";
-  import "swiper/css/navigation";
-  import "swiper/css/pagination";
-  import "swiper/css/effect-coverflow";
+  import { initHeroParticles } from "../scripts/heroParticles.js";
+  import { initSwiper } from "../scripts/swiperInit.js";
+  import { initTypewriter } from "../scripts/typewriter.js";
 
   document.addEventListener("astro:page-load", () => {
-    const swiperEl = document.querySelector(".my-swiper");
-    if (!swiperEl) return;
-
-    new Swiper(".my-swiper", {
-      modules: [Navigation, Pagination, Autoplay, EffectCoverflow],
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      loop: true,
-      initialSlide: 1,
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 2.5,
-        slideShadows: false,
-      },
-      autoplay: {
-        delay: 3500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-      navigation: {
-        nextEl: ".next-btn",
-        prevEl: ".prev-btn",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        dynamicBullets: true,
-      },
-    });
-  });
-</script>
-
-<script is:inline>
-  document.addEventListener("astro:page-load", () => {
-    const typewriterElement = document.getElementById("typewriter");
-    if (!typewriterElement) return;
-
-    const words = ["Agent nieruchomości", "Prawnik", "Twój doradca"];
-
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeEffect() {
-      const currentWord = words[wordIndex];
-
-      if (isDeleting) {
-        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      let typeSpeed = isDeleting ? 15 : 100;
-
-      if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 2000;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 500;
-      }
-
-      setTimeout(typeEffect, typeSpeed);
-    }
-    setTimeout(typeEffect, 1000);
+    initHeroParticles();
+    initTypewriter();
+    initSwiper();
   });
 </script>
